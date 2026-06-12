@@ -1,0 +1,1216 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立葉出版 | Amazon Kindle電子書籍マンガ出版代行</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+    color: #333;
+    background: #fff;
+    line-height: 1.8;
+  }
+
+  /* ===== TOP BAR ===== */
+  .top-bar {
+    background: #2e7d4f;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, #e8f5ee 0%, #f0f9f4 50%, #e0f2ea 100%);
+    padding: 70px 20px 60px;
+    text-align: center;
+  }
+  .hero .catch {
+    display: inline-block;
+    background: #2e7d4f;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: #1a3a2a;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    color: #2e7d4f;
+    font-style: normal;
+    border-bottom: 4px solid #2e7d4f;
+  }
+  .hero .sub {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: #4a7a60;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .hero .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    padding: 18px 48px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(231,76,60,0.4);
+    transition: transform 0.2s;
+  }
+  .hero .cta-btn:hover { transform: translateY(-2px); }
+  .hero .note {
+    font-size: 13px;
+    color: #888;
+    margin-top: 14px;
+  }
+
+  /* ===== SECTION BASE ===== */
+  .section {
+    padding: 70px 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 900;
+    color: #1a3a2a;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.4;
+  }
+  .section-title span {
+    color: #2e7d4f;
+  }
+  .divider {
+    width: 60px;
+    height: 4px;
+    background: #2e7d4f;
+    margin: 16px auto 40px;
+    border-radius: 2px;
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem-bg {
+    background: #fafafa;
+    border-top: 3px solid #e0e0e0;
+    border-bottom: 3px solid #e0e0e0;
+  }
+  .problem-list {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+  }
+  .problem-list li {
+    background: #fff;
+    border-left: 5px solid #e74c3c;
+    padding: 18px 22px;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .problem-list li::before {
+    content: "😔 ";
+  }
+
+  /* ===== SOLUTION ===== */
+  .solution-box {
+    background: linear-gradient(135deg, #2e7d4f, #1a5c36);
+    color: #fff;
+    border-radius: 16px;
+    padding: 48px 40px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .solution-box h2 {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .solution-box p {
+    font-size: 17px;
+    opacity: 0.9;
+    line-height: 1.8;
+  }
+
+  /* ===== BENEFITS ===== */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+  .benefit-card {
+    background: #fff;
+    border: 2px solid #e8f5ee;
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 16px rgba(46,125,79,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(46,125,79,0.15);
+  }
+  .benefit-card .icon {
+    font-size: 40px;
+    margin-bottom: 14px;
+  }
+  .benefit-card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #2e7d4f;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .benefit-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+  }
+  .benefit-card .highlight {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+
+  /* ===== SALES LETTER ===== */
+  .letter-bg {
+    background: #f9f7f2;
+    border-top: 3px solid #d4b896;
+    border-bottom: 3px solid #d4b896;
+  }
+  .letter-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 70px 20px;
+  }
+  .letter-inner p {
+    font-size: 16px;
+    line-height: 2.0;
+    margin-bottom: 24px;
+    color: #333;
+  }
+  .letter-inner .indent {
+    padding-left: 20px;
+    border-left: 3px solid #2e7d4f;
+    color: #4a7a60;
+    font-weight: bold;
+    margin: 32px 0;
+    font-size: 17px;
+  }
+  .letter-inner .sign {
+    text-align: right;
+    margin-top: 40px;
+    font-size: 15px;
+    color: #666;
+  }
+  .letter-inner .sign strong {
+    font-size: 20px;
+    color: #1a3a2a;
+    display: block;
+    margin-top: 8px;
+  }
+
+  /* ===== PROFILE ===== */
+  .profile-card {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    background: #fff;
+    border: 2px solid #e8f5ee;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 4px 16px rgba(46,125,79,0.08);
+  }
+  .profile-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2e7d4f, #1a5c36);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    flex-shrink: 0;
+  }
+  .profile-text h3 {
+    font-size: 14px;
+    color: #2e7d4f;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .profile-text h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #1a3a2a;
+    margin-bottom: 14px;
+  }
+  .profile-text p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.9;
+  }
+  .profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .profile-tags span {
+    background: #e8f5ee;
+    color: #2e7d4f;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+  @media (max-width: 600px) {
+    .profile-card { flex-direction: column; }
+  }
+
+  /* ===== STEPS ===== */
+  .steps {
+    counter-reset: step;
+    display: grid;
+    gap: 20px;
+  }
+  .step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid #e8f5ee;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #2e7d4f;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-content h4 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #1a3a2a;
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  /* ===== GUARANTEE ===== */
+  .guarantee-box {
+    border: 3px solid #2e7d4f;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    background: #fff;
+  }
+  .guarantee-box .badge {
+    font-size: 56px;
+    margin-bottom: 16px;
+  }
+  .guarantee-box h3 {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 900;
+    color: #1a3a2a;
+    margin-bottom: 16px;
+  }
+  .guarantee-box p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-list {
+    display: grid;
+    gap: 16px;
+  }
+  .faq-item {
+    background: #fff;
+    border: 1px solid #e8f5ee;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .faq-q {
+    background: #e8f5ee;
+    padding: 18px 24px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1a3a2a;
+  }
+  .faq-q::before { content: "Q. "; color: #2e7d4f; }
+  .faq-a {
+    padding: 18px 24px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+  }
+  .faq-a::before { content: "A. "; color: #e74c3c; font-weight: bold; }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final {
+    background: linear-gradient(135deg, #1a3a2a, #2e7d4f);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .cta-final h2 {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 900;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .cta-final p {
+    font-size: 17px;
+    opacity: 0.85;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+  .cta-final .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #fff;
+    padding: 22px 60px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+  .cta-final .btn:hover { transform: translateY(-3px); }
+  .cta-final .note {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-top: 16px;
+  }
+
+  /* ===== PRICING ===== */
+  .pricing-section {
+    background: #f9f7f2;
+    border-top: 3px solid #d4b896;
+    border-bottom: 3px solid #d4b896;
+  }
+  .pricing-lead {
+    text-align: center;
+    font-size: clamp(14px, 2.5vw, 17px);
+    color: #1a3a2a;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .pricing-sub {
+    text-align: center;
+    font-size: clamp(13px, 2vw, 15px);
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+  .pricing-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  }
+  .pricing-scroll::after {
+    content: "← 横にスクロールできます →";
+    display: none;
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    padding: 6px 0 2px;
+  }
+  @media (max-width: 700px) {
+    .pricing-scroll::after { display: block; }
+  }
+  .pricing-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    font-size: clamp(11px, 1.6vw, 14px);
+    background: #fff;
+  }
+  .pricing-table th, .pricing-table td {
+    border: 1px solid #c8d8c0;
+    padding: 10px 10px;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .pricing-table thead th {
+    background: #2e7d4f;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-size: clamp(11px, 1.5vw, 13px);
+  }
+  .pricing-table thead th.pack-head {
+    background: #e8c800;
+    color: #1a3a2a;
+  }
+  .pricing-table .row-label {
+    background: #e8f5ee;
+    color: #1a3a2a;
+    font-weight: bold;
+    text-align: center;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    width: 28px;
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+  .pricing-table .price-cell {
+    text-align: center;
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: bold;
+    color: #1a3a2a;
+    background: #fff;
+  }
+  .pricing-table .price-cell small {
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    color: #666;
+    margin-top: 2px;
+  }
+  .pricing-table .pack-cell {
+    background: #fffde0;
+    font-weight: bold;
+    text-align: center;
+    color: #1a3a2a;
+  }
+  .pricing-table .pack-price {
+    font-size: clamp(15px, 2.5vw, 20px);
+    font-weight: 900;
+    color: #2e7d4f;
+  }
+  .pricing-table .desc-cell {
+    font-size: clamp(11px, 1.5vw, 13px);
+    color: #333;
+    line-height: 1.7;
+  }
+  .pricing-table .desc-cell ul {
+    padding-left: 16px;
+    margin-bottom: 8px;
+  }
+  .pricing-table .desc-cell li { margin-bottom: 4px; }
+  .pricing-table .desc-cell .note-red {
+    color: #e74c3c;
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.6;
+    border-top: 1px dashed #e74c3c;
+    padding-top: 6px;
+  }
+  .pricing-table .pack-note {
+    background: #fffde0;
+    font-size: clamp(11px, 1.4vw, 13px);
+    color: #333;
+    line-height: 1.7;
+    text-align: left;
+    vertical-align: top;
+  }
+  .pricing-table .pack-note .discount {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  .hl-green { color: #2e7d4f; font-weight: bold; }
+
+  /* ===== MANGA SAMPLE ===== */
+  .sample-lead {
+    text-align: center;
+    font-size: clamp(14px, 2vw, 16px);
+    color: #555;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+  .sample-block-title {
+    font-size: clamp(15px, 2.5vw, 18px);
+    font-weight: 800;
+    color: #2e7d4f;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 4px solid #2e7d4f;
+  }
+  .illust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .illust-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    display: block;
+  }
+  .manga-page-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  .manga-page-wrap img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    display: block;
+  }
+  .manga-caption {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+  }
+
+  /* ===== GLOBAL MOBILE ===== */
+  img { max-width: 100%; height: auto; }
+  @media (max-width: 480px) {
+    .hero { padding: 48px 16px 40px; }
+    .section { padding: 48px 16px; }
+    .solution-box { padding: 32px 20px; }
+    .profile-card { padding: 24px 18px; }
+    .guarantee-box { padding: 28px 18px; }
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1a3a2a;
+    color: #aaa;
+    text-align: center;
+    padding: 40px 20px 24px;
+    font-size: 13px;
+  }
+  footer strong { color: #fff; }
+
+  /* footer内の規約 */
+  .footer-legal {
+    max-width: 860px;
+    margin: 0 auto 32px;
+    text-align: left;
+  }
+  .footer-legal h2 {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+  details.footer-legal-doc {
+    background: #243d30;
+    border: 1px solid #3a5e48;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  details.footer-legal-doc summary {
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #cce8d8;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details.footer-legal-doc summary::after {
+    content: "▼";
+    font-size: 11px;
+    color: #2e7d4f;
+    transition: transform 0.2s;
+  }
+  details.footer-legal-doc[open] summary::after {
+    transform: rotate(180deg);
+  }
+  details.footer-legal-doc summary::-webkit-details-marker { display: none; }
+  .footer-legal-doc-body {
+    padding: 18px 22px;
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.9;
+    border-top: 1px solid #3a5e48;
+  }
+  .footer-legal-doc-body h3 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #cce8d8;
+    margin: 16px 0 6px;
+  }
+  .footer-legal-doc-body h3:first-child { margin-top: 0; }
+  .footer-legal-doc-body p { margin-bottom: 10px; }
+  .footer-legal-doc-body ol, .footer-legal-doc-body ul {
+    padding-left: 18px;
+    margin-bottom: 10px;
+  }
+  .footer-legal-doc-body li { margin-bottom: 4px; }
+  .footer-legal-doc-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .footer-legal-doc-body table th, .footer-legal-doc-body table td {
+    border: 1px solid #3a5e48;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .footer-legal-doc-body table th {
+    background: #1a3a2a;
+    font-weight: bold;
+    width: 30%;
+    white-space: nowrap;
+    color: #cce8d8;
+  }
+  .footer-copy {
+    border-top: 1px solid #3a5e48;
+    padding-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">🌿 医療・福祉系の方専門｜Zoom無料相談受付中 ｜100%返金保証あり</div>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ" style="width:clamp(80px,20vw,140px); height:auto; object-fit:contain; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
+  <div class="catch">◎ 世の中を良くしたい人限定</div>
+  <h1>
+    あなたの<em>想いと知識</em>を<br>
+    Kindle本にして<br>
+    世の中を動かそう
+  </h1>
+  <p class="sub">
+    言語聴覚士・NPO法人理事が手がける<br>
+    医療・福祉系専門の<strong>Kindle電子書籍マンガ出版代行</strong>
+  </p>
+  <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn" target="_blank">▶ まずは無料相談（Zoom）</a>
+</section>
+
+<!-- PROBLEM -->
+<div class="problem-bg">
+  <div class="section">
+    <h2 class="section-title">こんな<span>お悩み</span>はありませんか？</h2>
+    <div class="divider"></div>
+    <ul class="problem-list">
+      <li>医療・福祉の現場で得た知識や経験を形にしたいが、どこから始めればいいかわからない</li>
+      <li>本を出版したいけれど、Amazonへの登録手続きや技術的な作業が面倒で踏み出せない</li>
+      <li>文字だけの本では読んでもらえるか不安。マンガや図解で伝えたいが自分ではできない</li>
+      <li>大手出版社に出すと印税が5〜10%しかもらえない。もっと自分の収益にしたい</li>
+      <li>患者さんや利用者さんの家族に役立つ情報を届けたいが、発信の手段がない</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SOLUTION -->
+<div class="section">
+  <div class="solution-box">
+    <h2>
+      その悩み、すべて<br>
+      立葉出版が解決します
+    </h2>
+    <p>
+      医療・福祉の専門知識を持つ私たちが、<br>
+      出版の「技術的な面倒」を丸ごと引き受けます。<br>
+      あなたは「書くこと」と「伝えること」だけに集中してください。
+    </p>
+  </div>
+
+  <!-- BENEFITS -->
+  <h2 class="section-title">立葉出版の<span>4つの強み</span></h2>
+  <div class="divider"></div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="icon">⏱️</div>
+      <h3>時間・手間を丸ごとカット</h3>
+      <p>
+        フォーマット変換・KDP登録・メタデータ設定など、
+        Amazon出版の<span class="highlight">面倒な手続きをすべてお任せ</span>。
+        あなたは執筆・監修だけに集中できます。
+      </p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon">💰</div>
+      <h3>印税収入を最大60%に</h3>
+      <p>
+        大手出版社では5〜10%の印税収入が、
+        Amazonなら<span class="highlight">最大60%があなたの手元に</span>。
+        SEOを意識したタイトル・説明文・カテゴリ選定で売れる本に最適化します。
+      </p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon">🎨</div>
+      <h3>マンガ・図解付きで伝わる本に</h3>
+      <p>
+        活字だけでは伝わりにくい医療・福祉の情報を、
+        <span class="highlight">マンガや図解で視覚的に表現</span>。
+        活字が苦手な読者層にも届き、SNSでのシェア・拡散も生まれやすくなります。
+      </p>
+    </div>
+    <div class="benefit-card">
+      <div class="icon">🛡️</div>
+      <h3>100%返金保証＆マンツーマン対応</h3>
+      <p>
+        契約から<span class="highlight">8日以内なら全額返金保証</span>。
+        Zoomによる一対一の丁寧なサポートで、初めての方でも安心して進められます。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- SALES LETTER -->
+<div class="letter-bg">
+  <div class="letter-inner">
+    <h2 class="section-title" style="text-align:left; margin-bottom:32px;">
+      <span>担当者より</span>、<br>あなたへのメッセージ
+    </h2>
+
+    <p>
+      このページをご覧いただいているあなたは、きっと「誰かの役に立ちたい」「自分の経験を社会に還元したい」という気持ちをお持ちの方だと思います。
+    </p>
+
+    <p>
+      私は介護福祉施設で言語聴覚士として働きながら、NPO法人の理事としてICTを活用した障害者や家族の介護支援にも携わってきました。
+    </p>
+
+    <p>
+      現場で働く中で、何度も感じてきたことがあります。
+    </p>
+
+    <div class="indent">
+      「もっと患者さんの家族に、正しい情報が届けばいいのに」<br>
+      「この知識が必要な人は、絶対にもっとたくさんいるはずなのに」
+    </div>
+
+    <p>
+      医療・福祉の世界で働く人たちは、誰よりも「人の役に立つ知識」を持っています。でも多くの場合、その知識は職場の中だけで消えていってしまいます。
+    </p>
+
+    <p>
+      出版というと「敷居が高い」と感じる方が多いです。でも今は違います。Amazonのプラットフォームを使えば、個人でも世界中に本を届けられる時代です。しかも大手出版社よりずっと高い印税収入を得ながら。
+    </p>
+
+    <p>
+      立葉出版を始めたのは、そんな「伝える力と知識を持っているのに、発信できていない人」を一人でも多く世に出したいという思いからです。
+    </p>
+
+    <p>
+      私たちは技術的な面倒を引き受けます。あなたはただ、あなたの経験と想いを語ってくれるだけでいい。それを一緒に「本」という形に仕上げて、世の中に届けましょう。
+    </p>
+
+    <div class="sign">
+      立葉出版<br>
+      <strong>代表 宮本 美穂（Miho Miyamoto）</strong>
+      <br>言語聴覚士 / NPO法人理事
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <h2 class="section-title">ご依頼から出版まで<span>4ステップ</span></h2>
+  <div class="divider"></div>
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Zoom無料相談（30分）</h4>
+        <p>GoogleフォームからZoom相談を申し込みください。出版したいテーマ・目的・ご希望をヒアリングします。費用の発生はありません。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>構成・企画プランのご提案</h4>
+        <p>ターゲット読者・タイトル案・章構成・マンガ/図解の有無など、売れる本づくりのプランをご提案します。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>制作・出版手続き一括対応</h4>
+        <p>原稿のフォーマット変換・マンガ/図解制作・KDP登録・メタデータ設定・カテゴリ選定まですべてお任せください。</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Amazon Kindleで出版・販売開始</h4>
+        <p>出版後もSEOを意識した最適化サポートを継続。あなたの本が多くの読者に届くようフォローします。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GUARANTEE -->
+<div class="section" style="padding-top: 0;">
+  <div class="guarantee-box">
+    <div class="badge">🛡️</div>
+    <h3>契約から8日以内<br>100%返金保証</h3>
+    <p>
+      万が一ご満足いただけない場合、契約から8日以内であれば全額返金いたします。
+      初めての方も安心してご相談ください。
+      また、すべてのやり取りはZoomのマンツーマン対応で丁寧にサポートします。
+    </p>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div class="section" style="padding-top: 0;">
+  <h2 class="section-title">担当者<span>プロフィール</span></h2>
+  <div class="divider"></div>
+  <div class="profile-card">
+    <div class="profile-icon">📗</div>
+    <div class="profile-text">
+      <h3>Manager and CEO / 立葉出版</h3>
+      <h2>宮本 美穂</h2>
+      <p>
+        介護福祉施設に勤務する言語聴覚士。筑波大学大学院卒業生によるNPO法人の理事を務め、ICTを活用した障害者やその家族の介護支援推進事業に従事。医療・福祉の現場で培った専門知識と、出版ノウハウを組み合わせた「伝わる本づくり」を支援。
+      </p>
+      <div class="profile-tags">
+        <span>言語聴覚士</span>
+        <span>NPO法人理事</span>
+        <span>ICT×介護支援</span>
+        <span>Kindle出版専門</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING TABLE -->
+<div class="pricing-section">
+  <div class="section">
+    <h2 class="section-title">料金<span>プラン</span></h2>
+    <div class="divider"></div>
+
+    <p class="pricing-lead">価格表：Amazon kindle電子書籍出版にて、<strong>自主出版の代行</strong>を致します。</p>
+    <p class="pricing-sub">大手出版社での自主出版100〜300万かかるところを最低価格でできます</p>
+
+    <div class="pricing-scroll">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th style="width:28px; background:#e8f5ee;"></th>
+            <th>文章のみの電子書籍<br>【原稿＋表紙作成】<br>（基本料金）</th>
+            <th>＋<span class="hl-green">高画質</span>図解<br>（10枚程度）<br>入りの電子書籍作成</th>
+            <th>＋<span class="hl-green">高画質</span>マンガ<br>（20枚程度）<br>入りの電子書籍作成</th>
+            <th>＋ペーパーバック<br>（紙書籍）作成</th>
+            <th class="pack-head">自主出版代行パック<br>（右記すべてセット）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="row-label">価格</th>
+            <td class="price-cell">10万円</td>
+            <td class="price-cell">＋10万円<small>（単品1万円/枚）</small></td>
+            <td class="price-cell">＋20万円<small>（単品1万円/枚）</small></td>
+            <td class="price-cell">＋20万円</td>
+            <td class="pack-cell"><span class="pack-price">50万円</span></td>
+          </tr>
+          <tr>
+            <th class="row-label">概要</th>
+            <td class="desc-cell" colspan="4">
+              <ul>
+                <li>1回目40分程度のzoom面談で、google formに記載して頂いた本のイメージの相談</li>
+                <li>2回目40分程度のzoom面談で原稿作成、表紙の画像の提案</li>
+                <li>3回目40分程度のzoom面談で2回目の原稿、表紙作成の訂正（完成）</li>
+                <li>4回目40分程度のzoom面談で書籍出版実行（紹介文、その他必要事項入力）</li>
+              </ul>
+              <p>以上、週1回程度の面談で書籍出版致します。</p>
+              <p class="note-red">注意事項：訂正は3回目の面談までにお知らせください（画像訂正1回出力1000円）。AIを使用しての作成になりますので、内容は各自よく確認してください。</p>
+            </td>
+            <td class="pack-note">個別より<span class="discount">10万円割引</span>。<br>（100%返金保証…契約から8日以内であれば、解約返金保証・右記載項目も同様）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- MANGA SAMPLE -->
+<div class="section">
+  <h2 class="section-title">マンガ・<span>イラスト</span>イメージ</h2>
+  <div class="divider"></div>
+  <p class="sample-lead">
+    AIを活用した<strong>高画質イラスト・マンガ</strong>で、難しい専門知識も<br>
+    わかりやすく・楽しく伝えられます。<br>
+    ※下記は実際の制作サンプルです（「漫画で学ぶ障害の世界vol.1 ADHD」より）
+  </p>
+
+  <p class="sample-block-title">🎨 イラスト解説ページ（抜粋）</p>
+  <div class="illust-grid">
+    <img src="images/image1.jpg" alt="第1章 ADHDとは何か">
+    <img src="images/image2.jpg" alt="ADHDへの見方の変化">
+    <img src="images/image3.jpg" alt="ADHDの3つのタイプ">
+  </div>
+
+  <p class="sample-block-title">📖 マンガページ（1ページ抜粋）</p>
+  <div class="manga-page-wrap">
+    <img src="images/image41.jpg" alt="漫画ページサンプル">
+  </div>
+  <p class="manga-caption">※ 実際の書籍では複数ページのマンガが収録されます</p>
+</div>
+
+<!-- FAQ -->
+<div class="problem-bg">
+  <div class="section">
+    <h2 class="section-title">よくある<span>ご質問</span></h2>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">医療・福祉以外の分野でもお願いできますか？</div>
+        <div class="faq-a">
+          立葉出版では特に医療・福祉系の専門家に特化しておりますが、「世の中を良くしたい」という想いのある方であれば他分野もご相談ください。まずは無料相談でお話をお聞きします。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">原稿がまだ書けていなくてもお願いできますか？</div>
+        <div class="faq-a">
+          はい、大丈夫です。構成のご提案からお手伝いします。テーマと伝えたいことさえあれば、一緒に作り上げていくことができます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">マンガ付きにしたいのですが、費用はどのくらいですか？</div>
+        <div class="faq-a">
+          上記の料金表をご参照ください。マンガ・図解の仕様によって異なりますので、無料相談でご希望をお聞きした上でお見積もりいたします。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Amazonでの販売収益はどうなりますか？</div>
+        <div class="faq-a">
+          Amazonの印税率は設定によって最大60%です（大手出版社の5〜10%と比較して大幅に高い）。販売収益はすべてご自身のAmazon KDPアカウントに直接入金されます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">返金保証の条件を教えてください。</div>
+        <div class="faq-a">
+          契約日から8日以内にお申し出いただいた場合、全額返金いたします。ご安心してご依頼ください。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-final" id="contact">
+  <h2>
+    あなたの想いを、<br>
+    本という形で世の中に届けませんか？
+  </h2>
+  <p>
+    まずはZoom無料相談（30分）から。<br>
+    費用はかかりません。あなたのビジョンをお聞かせください。
+  </p>
+  <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="btn" target="_blank">▶ 無料相談をGoogleフォームで申し込む</a>
+  <p class="note">※ 医療・福祉系出版専門員が対応｜契約後8日以内100%返金保証</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-legal">
+  <h2>各種規約・ポリシー</h2>
+
+    <details class="footer-legal-doc">
+      <summary>プライバシーポリシー（個人情報保護方針）</summary>
+      <div class="footer-legal-doc-body">
+        <p>本出版代行サービス（以下「当社サービス」といいます。）を運営する事業者（以下「当社」といいます。）は、ご利用者（以下「お客様」といいます。）の個人情報の保護を重要な責務と認識し、個人情報の保護に関する法律（個人情報保護法）その他関係法令を遵守するとともに、以下のプライバシーポリシーに従って個人情報を適切に取り扱います。</p>
+        <h3>第１条（取得する個人情報の種類）</h3>
+        <p>当社は、サービス提供にあたり、以下の個人情報を取得することがあります。</p>
+        <ol>
+          <li>氏名、住所、電話番号、メールアドレス等の連絡先情報</li>
+          <li>契約・支払いに関する情報（銀行口座情報、クレジットカード情報等）</li>
+          <li>著作物・原稿に関する情報</li>
+          <li>Amazon KDPアカウント情報（出版代行業務に必要な範囲）</li>
+          <li>お問い合わせ・相談内容</li>
+          <li>その他、当社サービスの提供に必要な情報</li>
+        </ol>
+        <h3>第２条（個人情報の利用目的）</h3>
+        <p>当社は、取得した個人情報を以下の目的のために利用します。</p>
+        <ol>
+          <li>出版代行サービスの提供・履行</li>
+          <li>契約の締結・管理および代金の請求・収納</li>
+          <li>お客様へのご連絡・サポート対応</li>
+          <li>サービスの品質向上および新サービスの開発</li>
+          <li>法令上の義務の履行</li>
+          <li>その他、上記各目的に付随・関連する業務</li>
+        </ol>
+        <h3>第３条（個人情報の第三者提供）</h3>
+        <p>当社は、以下の場合を除き、お客様の個人情報を第三者に提供しません。</p>
+        <ol>
+          <li>お客様の事前の同意がある場合</li>
+          <li>法令に基づく開示・提供が必要な場合</li>
+          <li>人の生命・身体・財産の保護のために必要な場合</li>
+          <li>公衆衛生の向上または児童の健全育成のために必要な場合</li>
+          <li>国の機関等が法令の定める事務を遂行するために必要な場合</li>
+        </ol>
+        <p>なお、当社は出版代行業務の遂行に必要な範囲で業務委託先（デザイン・印刷・データ変換等）に個人情報を提供する場合があります。この場合、当社は委託先に対して適切な個人情報の管理を義務付けます。</p>
+        <h3>第４条（個人情報の管理・安全対策）</h3>
+        <p>当社は、個人情報の漏洩・滅失・毀損等を防止するため、合理的な安全管理措置を講じます。また、個人情報を取り扱う従業員・委託先に対して、適切な監督を行います。</p>
+        <h3>第５条（個人情報の保存期間）</h3>
+        <p>当社は、利用目的の達成に必要な期間、個人情報を保存します。契約終了後は、法令上の保存義務期間が経過した後、速やかに廃棄または消去します。</p>
+        <h3>第６条（個人情報の開示・訂正・削除等）</h3>
+        <p>お客様は、当社が保有するご自身の個人情報について、開示・訂正・追加・削除・利用停止・消去・第三者提供停止を請求することができます。ご請求は下記お問い合わせ窓口までご連絡ください。なお、請求に際して本人確認を行う場合があります。</p>
+        <h3>第７条（Cookie等の使用）</h3>
+        <p>当社のウェブサイトでは、サービス改善やアクセス解析のためにCookieおよび類似の技術を使用する場合があります。お客様はブラウザ設定によりCookieを無効にすることができますが、一部機能が使用できなくなる場合があります。</p>
+        <h3>第８条（プライバシーポリシーの改定）</h3>
+        <p>当社は、法令の改正やサービスの変更等に応じて本ポリシーを改定することがあります。改定後のポリシーは、当社ウェブサイトまたは適切な方法でお客様に通知した時点から効力を生じます。</p>
+        <h3>第９条（お問い合わせ窓口）</h3>
+        <p>個人情報の取り扱いに関するお問い合わせは、以下の窓口にご連絡ください。<br>
+        メールアドレス：tateha2026@gmail.com</p>
+      </div>
+    </details>
+
+    <details class="footer-legal-doc">
+      <summary>特定商取引法に基づく表記</summary>
+      <div class="footer-legal-doc-body">
+        <table>
+          <tr><th>販売事業者名</th><td>立葉出版</td></tr>
+          <tr><th>運営責任者</th><td>宮本 美穂</td></tr>
+          <tr><th>所在地</th><td>〒160-0023 東京都新宿区西新宿3丁目3番13号 西新宿水間ビル2F</td></tr>
+          <tr><th>電話番号</th><td>※お問い合わせはメールにて承ります。ご請求があり次第、遅滞なく開示します。</td></tr>
+          <tr><th>メールアドレス</th><td>tateha2026@gmail.com</td></tr>
+          <tr><th>サービス名</th><td>Amazon kindle電子書籍マンガ出版代行サービス</td></tr>
+          <tr><th>販売価格</th><td>
+            各プランの料金は下記の通りです（税込）。<br>
+            ・文章のみ電子書籍（基本）：100,000 円<br>
+            ・図解入り電子書籍：200,000 円<br>
+            ・マンガ入り電子書籍：300,000 円<br>
+            ・ペーパーバック（紙書籍）作成：300,000 円<br>
+            ・自主出版代行パック（全部込み）：500,000 円<br>
+            ※ 割引適用の場合あり（詳細は個別にご案内）
+          </td></tr>
+          <tr><th>料金以外の必要費用</th><td>銀行振込の場合：振込手数料（お客様負担）。その他、通信料等はお客様のご負担となります。</td></tr>
+          <tr><th>支払方法</th><td>銀行振込（契約締結後、当社指定口座へお振込みください）※分割払いは個別にカード会社と行ってください。</td></tr>
+          <tr><th>支払時期</th><td>契約締結後、当社が指定する期日までにお支払いください。</td></tr>
+          <tr><th>サービス提供時期</th><td>入金確認後、出版代行契約書に定めるスケジュールに従って業務を開始します。原則として完全原稿受領後３か月以内に出版を行います（Amazon KDP 審査状況により変動あり）。</td></tr>
+          <tr><th>返品・キャンセル</th><td>
+            【クーリング・オフについて】契約締結日から８日以内は、書面または電磁的方法（メール等）により無条件で解約が可能です。<br><br>
+            【クーリング・オフ期間経過後のキャンセル】<br>
+            ・制作着手前（第１回面談前）：全額返金<br>
+            ・第１回面談完了後・原稿制作開始前：料金の 70% 返金<br>
+            ・原稿制作開始後・納品前：料金の 40% 返金<br>
+            ・納品後：返金不可<br>
+            乙（当社）の都合によるキャンセルの場合は全額返金します。<br><br>
+            クーリング・オフ通知先メールアドレス：tateha2026@gmail.com
+          </td></tr>
+          <tr><th>動作環境・特記事項</th><td>
+            本サービスはAmazon Kindle Direct Publishing（KDP）を通じた電子書籍出版代行を行います。Amazonの審査結果・販売成績・収益は保証しません。AIを活用した制作を含みますが、品質確認を経て納品します。
+          </td></tr>
+        </table>
+        <p style="font-size:13px; color:#888;">※上記の内容は予告なく変更される場合があります。最新の情報は当社ウェブサイトをご確認ください。<br>最終更新日：2026年7月1日</p>
+      </div>
+    </details>
+
+    <details class="footer-legal-doc">
+      <summary>利用規約</summary>
+      <div class="footer-legal-doc-body">
+        <p>本利用規約（以下「本規約」といいます。）は、当社が提供するKindle電子書籍出版代行サービス（以下「本サービス」といいます。）の利用条件を定めるものです。お客様は本規約に同意の上、本サービスをご利用ください。</p>
+        <h3>第１条（定義）</h3>
+        <ol>
+          <li>「当社」とは、本サービスを運営する出版代行事業者をいいます。</li>
+          <li>「お客様」とは、本規約に同意の上、本サービスを利用する個人または法人をいいます。</li>
+          <li>「本著作物」とは、お客様が当社に制作・出版を委託する電子書籍の原稿・素材等をいいます。</li>
+          <li>「成果物」とは、当社が本サービスにより制作・納品するデータ・デザイン等一切をいいます。</li>
+        </ol>
+        <h3>第２条（規約への同意）</h3>
+        <p>お客様は、本サービスの申込み手続きを完了した時点で、本規約の全ての内容に同意したものとみなします。未成年者がご利用の場合は、保護者の同意を得た上でお申込みください。</p>
+        <h3>第３条（サービス内容）</h3>
+        <p>本サービスの内容は、別途締結する出版代行契約書に定める通りとします。当社は、サービス内容を予告なく変更することがありますが、その場合はお客様に事前にご通知します。</p>
+        <h3>第４条（申込みと契約成立）</h3>
+        <p>本サービスへの申込みは、当社所定の方法による申込み手続きの完了および当社からの承諾通知の送付をもって、契約が成立するものとします。</p>
+        <h3>第５条（料金および支払）</h3>
+        <ol>
+          <li>本サービスの料金は、出版代行契約書に定める通りとします。</li>
+          <li>お客様は、当社が指定する方法（銀行振込等）により料金を支払うものとします。</li>
+          <li>振込手数料その他支払いに要する費用はお客様の負担とします。</li>
+        </ol>
+        <h3>第６条（キャンセル・返金）</h3>
+        <p>キャンセルおよび返金に関する条件は、出版代行契約書第４条の定めに従います。</p>
+        <h3>第７条（お客様の義務）</h3>
+        <ol>
+          <li>当社に提供する原稿・素材等が第三者の著作権・肖像権その他の権利を侵害しないこと</li>
+          <li>虚偽の情報を提供しないこと</li>
+          <li>本サービスを通じて違法なコンテンツを出版しないこと</li>
+          <li>当社および第三者の業務を妨害する行為をしないこと</li>
+          <li>本規約および関係法令を遵守すること</li>
+        </ol>
+        <h3>第８条（禁止事項）</h3>
+        <ol>
+          <li>法令または公序良俗に違反する行為</li>
+          <li>第三者の著作権・商標権・プライバシー権等の権利を侵害する行為</li>
+          <li>差別的・誹謗中傷的・暴力的なコンテンツの出版</li>
+          <li>当社のシステムへの不正アクセスまたはその試み</li>
+          <li>本サービスの利用権を第三者に譲渡・転貸する行為</li>
+          <li>当社の事前承諾なく本サービスを商業目的で第三者に利用させる行為</li>
+          <li>その他、当社が不適切と合理的に判断する行為</li>
+        </ol>
+        <h3>第９条（著作権）</h3>
+        <p>著作権の帰属については、出版代行契約書第７条・第８条の定めに従います。</p>
+        <h3>第10条（免責事項）</h3>
+        <ol>
+          <li>当社は、Amazon KDPの審査結果・販売成績・収益等を保証しません。</li>
+          <li>当社の故意または重過失によらない場合、当社はお客様に生じた損害について責任を負いません。</li>
+          <li>Amazon側の仕様変更・サービス停止・審査基準の変更等、当社の支配が及ばない事情による不利益について、当社は責任を負いません。</li>
+          <li>お客様が提供した原稿・素材に起因する第三者からの権利侵害の申立て等については、お客様の責任と費用において対応するものとします。</li>
+        </ol>
+        <h3>第11条（反社会的勢力の排除）</h3>
+        <p>お客様は、自らが反社会的勢力（暴力団、暴力団員、その他これらに準ずる者等）に該当しないことを表明・保証します。当社は、お客様が反社会的勢力に該当すると判断した場合、何らの催告なく本契約を解除し、以後のサービス提供を停止できます。</p>
+        <h3>第12条（秘密保持）</h3>
+        <p>出版代行契約書第12条の定めに従います。</p>
+        <h3>第13条（個人情報の取り扱い）</h3>
+        <p>当社は、別途定めるプライバシーポリシーに従い、お客様の個人情報を適切に管理します。</p>
+        <h3>第14条（規約の変更）</h3>
+        <p>当社は、必要に応じて本規約を変更することができます。変更後の規約は、当社ウェブサイトへの掲載または適切な方法による通知をもって効力を生じます。</p>
+        <h3>第15条（準拠法・管轄）</h3>
+        <p>本規約は日本法に準拠し、本規約に関する紛争については東京地方裁判所を第一審の専属的合意管轄裁判所とします。</p>
+        <p style="font-size:13px; color:#888;">制定日：2026年7月1日</p>
+      </div>
+    </details>
+  </div>
+</div>
+</div><!-- /footer-legal -->
+
+<div class="footer-copy">
+  <img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ" style="width:64px; height:auto; object-fit:contain; margin-bottom:10px; display:block; margin-left:auto; margin-right:auto; opacity:0.85;">
+  <strong>立葉出版（Tachiba Publishing）</strong><br>
+  © 2026 立葉出版 All Rights Reserved.
+</div>
+</footer>
+
+</body>
+</html>
