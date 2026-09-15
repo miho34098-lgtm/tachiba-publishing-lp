@@ -1,51 +1,142 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>立葉出版 | Amazon Kindle電子書籍マンガ出版代行</title>
+<title>立葉出版 | Amazon Kindle電子書籍マンガ出版代行（v2）</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
-    color: #333;
+    color: #2a2a2a;
     background: #fff;
     line-height: 1.8;
   }
+  img { max-width: 100%; height: auto; display: block; }
 
-  /* ===== TOP BAR ===== */
-  .top-bar {
-    background: #2e7d4f;
-    color: #fff;
-    text-align: center;
-    padding: 12px;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
+  /* ===== STICKY HEADER BAR ===== */
+  .sticky-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 1px solid #e4ede8;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 12px rgba(26,58,42,0.06);
   }
+  .sticky-bar .pill {
+    background: #fdeaea;
+    color: #c0392b;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .sticky-bar .label {
+    font-size: 13px;
+    font-weight: 800;
+    color: #1a3a2a;
+    white-space: nowrap;
+  }
+  .sticky-bar .label span { color: #2e7d4f; }
+  .cta-btn {
+    display: inline-block;
+    background: #16a34a;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(22,163,74,0.35);
+  }
+  .cta-btn.size-sm {
+    padding: 10px 22px;
+    font-size: 13px;
+  }
+  .cta-btn.size-lg {
+    padding: 20px 52px;
+    font-size: 19px;
+    animation: pulse-cta 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 4px 14px rgba(22,163,74,0.35); transform: scale(1); }
+    50% { box-shadow: 0 6px 26px rgba(22,163,74,0.55); transform: scale(1.03); }
+  }
+  .cta-wrap {
+    text-align: center;
+    padding: 44px 20px;
+  }
+  .cta-wrap .note {
+    font-size: 13px;
+    color: #888;
+    margin-top: 14px;
+  }
+  @media (max-width: 640px) {
+    .sticky-bar .label { display: none; }
+  }
+
+  /* ===== PILL SECTION LABEL ===== */
+  .eyebrow {
+    display: block;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .eyebrow span {
+    display: inline-block;
+    background: #e8f5ee;
+    color: #2e7d4f;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 6px 18px;
+    border-radius: 20px;
+  }
+  .eyebrow.ey-coral span { background: #fdeaea; color: #c0392b; }
+  .eyebrow.ey-gold span { background: #fff3d4; color: #b8860b; }
 
   /* ===== HERO ===== */
   .hero {
-    background: linear-gradient(135deg, #e8f5ee 0%, #f0f9f4 50%, #e0f2ea 100%);
-    padding: 70px 20px 60px;
-    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 56px 20px 64px;
+    background: linear-gradient(160deg, #eaf7f0 0%, #f4faf1 45%, #fdf7ec 100%);
   }
-  .hero .catch {
-    display: inline-block;
-    background: #2e7d4f;
-    color: #fff;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 6px 20px;
-    border-radius: 20px;
-    margin-bottom: 24px;
-    letter-spacing: 2px;
+  .hero .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.55;
+    z-index: 0;
+  }
+  .hero .blob.b1 { width: 320px; height: 320px; background: #bfe6cf; top: -100px; left: -80px; }
+  .hero .blob.b2 { width: 260px; height: 260px; background: #ffe3b0; bottom: -80px; right: -60px; }
+  .hero .blob.b3 { width: 200px; height: 200px; background: #cfe9f2; top: 40%; right: 10%; }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-text { text-align: left; }
+  .hero img.logo {
+    width: clamp(64px,14vw,100px);
+    margin: 0 0 18px;
   }
   .hero h1 {
-    font-size: clamp(28px, 5vw, 52px);
+    font-size: clamp(26px, 4.4vw, 46px);
     font-weight: 900;
     color: #1a3a2a;
-    line-height: 1.4;
+    line-height: 1.45;
     margin-bottom: 20px;
   }
   .hero h1 em {
@@ -54,34 +145,67 @@
     border-bottom: 4px solid #2e7d4f;
   }
   .hero .sub {
-    font-size: clamp(16px, 2.5vw, 22px);
+    font-size: clamp(15px, 2vw, 19px);
     color: #4a7a60;
-    margin-bottom: 36px;
+    margin-bottom: 30px;
     line-height: 1.7;
   }
-  .hero .cta-btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: #fff;
-    padding: 18px 48px;
-    border-radius: 50px;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 6px 20px rgba(231,76,60,0.4);
-    transition: transform 0.2s;
+  .hero-photo-wrap {
+    position: relative;
   }
-  .hero .cta-btn:hover { transform: translateY(-2px); }
-  .hero .note {
-    font-size: 13px;
-    color: #888;
-    margin-top: 14px;
+  .hero-photo-wrap img.photo {
+    width: 100%;
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(26,58,42,0.18);
+    display: block;
+  }
+  .float-badge {
+    position: absolute;
+    background: #fff;
+    border-radius: 14px;
+    padding: 10px 16px;
+    box-shadow: 0 8px 24px rgba(26,58,42,0.16);
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #1a3a2a;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+  .float-badge .fb-num {
+    color: #2e7d4f;
+    font-size: 11px;
+    font-weight: 900;
+    display: block;
+  }
+  .float-badge.fb-1 { top: 8%; left: -8%; }
+  .float-badge.fb-2 { bottom: 20%; right: -10%; background: #fdeaea; }
+  .float-badge.fb-2 .fb-num { color: #c0392b; }
+  .float-pin {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #16a34a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 8px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(22,163,74,0.3);
+    white-space: nowrap;
+  }
+  @media (max-width: 800px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-text { text-align: center; }
+    .hero img.logo { margin: 0 auto 18px; }
+    .float-badge.fb-1 { left: 4%; }
+    .float-badge.fb-2 { right: 4%; }
   }
 
   /* ===== SECTION BASE ===== */
   .section {
-    padding: 70px 20px;
-    max-width: 860px;
+    padding: 74px 20px;
+    max-width: 880px;
     margin: 0 auto;
   }
   .section-title {
@@ -89,120 +213,133 @@
     font-weight: 900;
     color: #1a3a2a;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     line-height: 1.4;
   }
-  .section-title span {
-    color: #2e7d4f;
-  }
-  .divider {
-    width: 60px;
-    height: 4px;
-    background: #2e7d4f;
-    margin: 16px auto 40px;
-    border-radius: 2px;
+  .section-title span { color: #2e7d4f; }
+  .section-lead {
+    text-align: center;
+    font-size: clamp(14px, 2vw, 16px);
+    color: #666;
+    max-width: 620px;
+    margin: 0 auto 44px;
+    line-height: 1.8;
   }
 
-  /* ===== PROBLEM ===== */
-  .problem-bg {
-    background: #fafafa;
-    border-top: 3px solid #e0e0e0;
-    border-bottom: 3px solid #e0e0e0;
-  }
-  .problem-list {
-    list-style: none;
-    display: grid;
-    gap: 16px;
-  }
+  /* ===== PROBLEM (numbered cards) ===== */
+  .problem-bg { background: #fdf9f7; border-top: 3px solid #f2e2dd; border-bottom: 3px solid #f2e2dd; }
+  .problem-list { list-style: none; display: grid; gap: 14px; margin-bottom: 40px; }
   .problem-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
     background: #fff;
-    border-left: 5px solid #e74c3c;
+    border-left: 5px solid #e0685a;
     padding: 18px 22px;
-    border-radius: 0 8px 8px 0;
-    font-size: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-radius: 0 10px 10px 0;
+    font-size: 15.5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
-  .problem-list li::before {
-    content: "😔 ";
+  .problem-list .num {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fdeaea;
+    color: #c0392b;
+    font-size: 13px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  .bridge-box {
+    text-align: center;
+    background: #fff;
+    border: 2px dashed #cfe3d6;
+    border-radius: 16px;
+    padding: 32px 24px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .bridge-box p { font-size: clamp(15px,2.2vw,18px); line-height: 1.9; }
+  .bridge-box p.q1 { color: #444; margin-bottom: 6px; }
+  .bridge-box p.q2 { color: #1a3a2a; font-weight: 900; }
+  .bridge-box p.q2 strong { color: #2e7d4f; }
 
-  /* ===== SOLUTION ===== */
+  /* ===== SOLUTION INTRO ===== */
   .solution-box {
     background: linear-gradient(135deg, #2e7d4f, #1a5c36);
     color: #fff;
     border-radius: 16px;
-    padding: 48px 40px;
+    padding: 46px 38px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 54px;
   }
-  .solution-box h2 {
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 900;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .solution-box p {
-    font-size: 17px;
-    opacity: 0.9;
-    line-height: 1.8;
-  }
+  .solution-box h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 900; line-height: 1.5; margin-bottom: 14px; }
+  .solution-box p { font-size: 16px; opacity: 0.92; line-height: 1.85; }
 
-  /* ===== BENEFITS ===== */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
+  /* ===== PILLAR CARDS (benefits, numbered) ===== */
+  .pillars { display: grid; gap: 26px; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px) {
+    .pillars { grid-template-columns: 1fr; }
   }
-  .benefit-card {
+  .pillar-card {
     background: #fff;
-    border: 2px solid #e8f5ee;
-    border-radius: 16px;
-    padding: 32px 28px;
-    box-shadow: 0 4px 16px rgba(46,125,79,0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid #e8f5ee;
+    border-top: 4px solid #16a34a;
+    border-radius: 18px;
+    padding: 30px 26px;
+    box-shadow: 0 4px 18px rgba(46,125,79,0.08);
   }
-  .benefit-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 28px rgba(46,125,79,0.15);
+  .pillar-card .pillar-num {
+    font-size: 34px;
+    font-weight: 900;
+    color: #d9a441;
+    line-height: 1;
+    margin-bottom: 10px;
   }
-  .benefit-card .icon {
-    font-size: 40px;
-    margin-bottom: 14px;
-  }
-  .benefit-card h3 {
+  .pillar-card h3 {
     font-size: 18px;
-    font-weight: 800;
-    color: #2e7d4f;
-    margin-bottom: 12px;
+    font-weight: 900;
+    color: #1a3a2a;
+    margin-bottom: 10px;
     line-height: 1.4;
   }
-  .benefit-card p {
-    font-size: 15px;
+  .pillar-card p {
+    font-size: 14.5px;
     color: #555;
-    line-height: 1.8;
+    line-height: 1.85;
+    margin-bottom: 14px;
   }
-  .benefit-card .highlight {
-    color: #e74c3c;
-    font-weight: bold;
+  .pillar-card p .highlight { color: #c0392b; font-weight: bold; }
+  .pillar-card ul {
+    list-style: none;
+    display: grid;
+    gap: 6px;
+  }
+  .pillar-card ul li {
+    font-size: 13px;
+    color: #2e7d4f;
+    font-weight: 700;
+    padding-left: 18px;
+    position: relative;
+  }
+  .pillar-card ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
   }
 
   /* ===== SALES LETTER ===== */
-  .letter-bg {
-    background: #f9f7f2;
-    border-top: 3px solid #d4b896;
-    border-bottom: 3px solid #d4b896;
-  }
-  .letter-inner {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 70px 20px;
-  }
-  .letter-inner p {
-    font-size: 16px;
-    line-height: 2.0;
-    margin-bottom: 24px;
-    color: #333;
-  }
+  .letter-bg { background: #f9f7f2; border-top: 3px solid #d4b896; border-bottom: 3px solid #d4b896; }
+  .letter-inner { max-width: 720px; margin: 0 auto; padding: 74px 20px; }
+  .letter-inner p { font-size: 16px; line-height: 2.0; margin-bottom: 24px; color: #333; }
   .letter-inner .indent {
     padding-left: 20px;
     border-left: 3px solid #2e7d4f;
@@ -211,534 +348,289 @@
     margin: 32px 0;
     font-size: 17px;
   }
-  .letter-inner .sign {
-    text-align: right;
-    margin-top: 40px;
-    font-size: 15px;
-    color: #666;
-  }
-  .letter-inner .sign strong {
-    font-size: 20px;
-    color: #1a3a2a;
-    display: block;
-    margin-top: 8px;
-  }
+  .letter-inner .sign { text-align: right; margin-top: 40px; font-size: 15px; color: #666; }
+  .letter-inner .sign strong { font-size: 20px; color: #1a3a2a; display: block; margin-top: 8px; }
 
   /* ===== PROFILE ===== */
   .profile-card {
-    display: flex;
-    gap: 32px;
-    align-items: flex-start;
-    background: #fff;
-    border: 2px solid #e8f5ee;
-    border-radius: 16px;
-    padding: 36px;
-    box-shadow: 0 4px 16px rgba(46,125,79,0.08);
+    display: flex; gap: 32px; align-items: flex-start;
+    background: #fff; border: 1px solid #e8f5ee; border-radius: 18px;
+    padding: 36px; box-shadow: 0 4px 18px rgba(46,125,79,0.08);
   }
   .profile-icon {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #2e7d4f, #1a5c36);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 52px;
-    flex-shrink: 0;
+    width: 120px; height: 120px; border-radius: 50%;
+    flex-shrink: 0; overflow: hidden;
+    box-shadow: 0 4px 14px rgba(46,125,79,0.18);
   }
-  .profile-text h3 {
-    font-size: 14px;
-    color: #2e7d4f;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 6px;
-  }
-  .profile-text h2 {
-    font-size: 28px;
-    font-weight: 900;
-    color: #1a3a2a;
-    margin-bottom: 14px;
-  }
-  .profile-text p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.9;
-  }
-  .profile-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
+  .profile-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .profile-text h3 { font-size: 14px; color: #2e7d4f; font-weight: bold; letter-spacing: 2px; margin-bottom: 6px; }
+  .profile-text h2 { font-size: 28px; font-weight: 900; color: #1a3a2a; margin-bottom: 14px; }
+  .profile-text p { font-size: 15px; color: #555; line-height: 1.9; }
+  .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .profile-tags span {
-    background: #e8f5ee;
-    color: #2e7d4f;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 4px 12px;
-    border-radius: 20px;
+    background: #e8f5ee; color: #2e7d4f; font-size: 12px; font-weight: bold;
+    padding: 4px 12px; border-radius: 20px;
   }
-  @media (max-width: 600px) {
-    .profile-card { flex-direction: column; }
-  }
+  @media (max-width: 600px) { .profile-card { flex-direction: column; } }
 
   /* ===== STEPS ===== */
-  .steps {
-    counter-reset: step;
-    display: grid;
-    gap: 20px;
-  }
+  .steps { display: grid; gap: 20px; }
   .step-item {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    background: #fff;
-    border: 1px solid #e8f5ee;
-    border-radius: 12px;
-    padding: 24px;
+    display: flex; gap: 20px; align-items: flex-start;
+    background: #fff; border: 1px solid #e8f5ee; border-radius: 14px; padding: 24px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
   .step-num {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #2e7d4f;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: #16a34a; color: #fff; font-size: 19px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .step-content h4 {
-    font-size: 17px;
-    font-weight: 800;
-    color: #1a3a2a;
-    margin-bottom: 6px;
-  }
-  .step-content p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.7;
-  }
+  .step-content h4 { font-size: 17px; font-weight: 800; color: #1a3a2a; margin-bottom: 6px; }
+  .step-content p { font-size: 14px; color: #666; line-height: 1.7; }
 
   /* ===== GUARANTEE ===== */
   .guarantee-box {
     border: 3px solid #2e7d4f;
-    border-radius: 16px;
-    padding: 40px;
+    border-radius: 18px;
+    padding: 44px 36px;
     text-align: center;
-    background: #fff;
+    background: #fbfdfc;
   }
-  .guarantee-box .badge {
-    font-size: 56px;
-    margin-bottom: 16px;
-  }
-  .guarantee-box h3 {
-    font-size: clamp(20px, 3vw, 28px);
-    font-weight: 900;
-    color: #1a3a2a;
-    margin-bottom: 16px;
-  }
-  .guarantee-box p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.8;
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  /* ===== FAQ ===== */
-  .faq-list {
-    display: grid;
-    gap: 16px;
-  }
-  .faq-item {
-    background: #fff;
-    border: 1px solid #e8f5ee;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-  .faq-q {
-    background: #e8f5ee;
-    padding: 18px 24px;
-    font-size: 16px;
-    font-weight: 800;
-    color: #1a3a2a;
-  }
-  .faq-q::before { content: "Q. "; color: #2e7d4f; }
-  .faq-a {
-    padding: 18px 24px;
-    font-size: 15px;
-    color: #555;
-    line-height: 1.8;
-  }
-  .faq-a::before { content: "A. "; color: #e74c3c; font-weight: bold; }
-
-  /* ===== CTA FINAL ===== */
-  .cta-final {
-    background: linear-gradient(135deg, #1a3a2a, #2e7d4f);
-    color: #fff;
-    padding: 80px 20px;
-    text-align: center;
-  }
-  .cta-final h2 {
-    font-size: clamp(24px, 4vw, 38px);
-    font-weight: 900;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  .cta-final p {
-    font-size: 17px;
-    opacity: 0.85;
-    margin-bottom: 36px;
-    line-height: 1.8;
-  }
-  .cta-final .btn {
+  .guarantee-box .g-label {
     display: inline-block;
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: #fff;
-    padding: 22px 60px;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-  }
-  .cta-final .btn:hover { transform: translateY(-3px); }
-  .cta-final .note {
+    letter-spacing: 4px;
     font-size: 13px;
-    opacity: 0.7;
-    margin-top: 16px;
+    font-weight: 900;
+    color: #fff;
+    background: #16a34a;
+    padding: 6px 20px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .guarantee-box h3 { font-size: clamp(20px, 3vw, 28px); font-weight: 900; color: #1a3a2a; margin-bottom: 16px; }
+  .guarantee-box p { font-size: 15px; color: #555; line-height: 1.9; max-width: 560px; margin: 0 auto; }
+
+  /* ===== PRICING (feature card) ===== */
+  .pricing-section { background: #f4faf5; border-top: 3px solid #d7ebdd; border-bottom: 3px solid #d7ebdd; }
+  .price-card {
+    max-width: 560px; margin: 0 auto 48px;
+    background: #fff; border-radius: 22px; border: 2px solid #2e7d4f;
+    box-shadow: 0 10px 34px rgba(46,125,79,0.16);
+    overflow: hidden;
+  }
+  .price-card .price-head {
+    background: linear-gradient(135deg, #2e7d4f, #1a5c36);
+    color: #fff; text-align: center; padding: 26px 24px 22px;
+  }
+  .price-card .price-head .pill {
+    display: inline-block; background: rgba(255,255,255,0.18);
+    font-size: 12px; font-weight: 800; padding: 5px 16px; border-radius: 20px;
+    margin-bottom: 12px; letter-spacing: 1px;
+  }
+  .price-card .price-head .name { font-size: 18px; font-weight: 900; margin-bottom: 4px; }
+  .price-card .price-body { padding: 30px 30px 34px; text-align: center; }
+  .price-card .amount { font-size: clamp(36px, 7vw, 52px); font-weight: 900; color: #1a3a2a; line-height: 1; }
+  .price-card .amount .yen { font-size: 20px; font-weight: 800; margin-left: 4px; }
+  .price-card .amount-note { font-size: 13px; color: #888; margin: 8px 0 26px; }
+  .price-card .includes { text-align: left; display: grid; gap: 10px; margin-bottom: 26px; }
+  .price-card .includes li {
+    list-style: none; display: flex; gap: 10px; font-size: 14.5px; color: #333; align-items: flex-start;
+  }
+  .price-card .includes li .chk {
+    flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+    background: #e8f5ee; color: #2e7d4f; font-size: 12px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center; margin-top: 2px;
+  }
+  .compare-note {
+    text-align: center; font-size: clamp(13px,2vw,15px); color: #c0392b; font-weight: bold;
+    margin-bottom: 28px; line-height: 1.6;
   }
 
-  /* ===== PRICING ===== */
-  .pricing-section {
-    background: #f9f7f2;
-    border-top: 3px solid #d4b896;
-    border-bottom: 3px solid #d4b896;
+  /* ===== CONTRACT BONUS ===== */
+  .bonus-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin-bottom: 26px; }
+  .bonus-card {
+    background: #fff; border: 1px solid #eee; border-top: 4px solid #ccc;
+    border-radius: 14px; padding: 24px 22px; box-shadow: 0 3px 14px rgba(0,0,0,0.05);
   }
-  .pricing-lead {
-    text-align: center;
-    font-size: clamp(14px, 2.5vw, 17px);
-    color: #1a3a2a;
-    margin-bottom: 8px;
-    line-height: 1.6;
+  .bonus-card.bc-blue { border-top-color: #3b82c4; }
+  .bonus-card.bc-green { border-top-color: #16a34a; }
+  .bonus-card.bc-purple { border-top-color: #8b5fbf; }
+  .bonus-card .bonus-tag {
+    display: inline-block; font-size: 11.5px; font-weight: 900; letter-spacing: 1px;
+    color: #fff; background: #999; padding: 3px 10px; border-radius: 12px; margin-bottom: 12px;
   }
-  .pricing-sub {
-    text-align: center;
-    font-size: clamp(13px, 2vw, 15px);
-    color: #e74c3c;
-    font-weight: bold;
-    margin-bottom: 28px;
-    line-height: 1.5;
+  .bc-blue .bonus-tag { background: #3b82c4; }
+  .bc-green .bonus-tag { background: #16a34a; }
+  .bc-purple .bonus-tag { background: #8b5fbf; }
+  .bonus-card h4 { font-size: 16px; font-weight: 900; color: #1a3a2a; line-height: 1.5; margin-bottom: 10px; }
+  .bonus-card p { font-size: 13.5px; color: #555; line-height: 1.75; }
+  .bonus-pack-note {
+    max-width: 640px; margin: 0 auto 28px; text-align: center;
+    background: #fff8e6; border: 1px solid #f0d998; border-radius: 12px;
+    padding: 18px 24px; font-size: 14.5px; color: #5a4a1a; line-height: 1.8;
+  }
+  .bonus-pack-note .bonus-pack-label {
+    display: block; font-size: 12px; font-weight: 900; color: #b8860b; letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .bonus-pack-note strong { color: #1a3a2a; }
+  .bonus-tagline {
+    text-align: center; font-size: clamp(15px, 2.2vw, 18px); font-weight: 900; color: #1a3a2a;
   }
   .pricing-scroll {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.10);
   }
   .pricing-scroll::after {
-    content: "← 横にスクロールできます →";
-    display: none;
-    text-align: center;
-    font-size: 11px;
-    color: #999;
-    padding: 6px 0 2px;
+    content: "← 横にスクロールできます →"; display: none; text-align: center;
+    font-size: 11px; color: #999; padding: 6px 0 2px;
   }
-  @media (max-width: 700px) {
-    .pricing-scroll::after { display: block; }
-  }
-  .pricing-table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-    font-size: clamp(11px, 1.6vw, 14px);
-    background: #fff;
-  }
-  .pricing-table th, .pricing-table td {
-    border: 1px solid #c8d8c0;
-    padding: 10px 10px;
-    vertical-align: top;
-    line-height: 1.6;
-  }
-  .pricing-table thead th {
-    background: #2e7d4f;
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    font-size: clamp(11px, 1.5vw, 13px);
-  }
-  .pricing-table thead th.pack-head {
-    background: #e8c800;
-    color: #1a3a2a;
-  }
+  @media (max-width: 700px) { .pricing-scroll::after { display: block; } }
+  .pricing-table { width: 100%; min-width: 600px; border-collapse: collapse; font-size: clamp(11px, 1.6vw, 14px); background: #fff; }
+  .pricing-table th, .pricing-table td { border: 1px solid #c8d8c0; padding: 10px; vertical-align: top; line-height: 1.6; }
+  .pricing-table thead th { background: #2e7d4f; color: #fff; font-weight: bold; text-align: center; font-size: clamp(11px, 1.5vw, 13px); }
+  .pricing-table thead th.pack-head { background: #e8c800; color: #1a3a2a; }
   .pricing-table .row-label {
-    background: #e8f5ee;
-    color: #1a3a2a;
-    font-weight: bold;
-    text-align: center;
-    writing-mode: vertical-rl;
-    white-space: nowrap;
-    width: 28px;
-    font-size: 13px;
-    padding: 10px 6px;
+    background: #e8f5ee; color: #1a3a2a; font-weight: bold; text-align: center;
+    writing-mode: vertical-rl; white-space: nowrap; width: 28px; font-size: 13px; padding: 10px 6px;
   }
-  .pricing-table .price-cell {
-    text-align: center;
-    font-size: clamp(13px, 2vw, 16px);
-    font-weight: bold;
-    color: #1a3a2a;
-    background: #fff;
-  }
-  .pricing-table .price-cell small {
-    display: block;
-    font-size: 11px;
-    font-weight: normal;
-    color: #666;
-    margin-top: 2px;
-  }
-  .pricing-table .pack-cell {
-    background: #fffde0;
-    font-weight: bold;
-    text-align: center;
-    color: #1a3a2a;
-  }
-  .pricing-table .pack-price {
-    font-size: clamp(15px, 2.5vw, 20px);
-    font-weight: 900;
-    color: #2e7d4f;
-  }
-  .pricing-table .desc-cell {
-    font-size: clamp(11px, 1.5vw, 13px);
-    color: #333;
-    line-height: 1.7;
-  }
-  .pricing-table .desc-cell ul {
-    padding-left: 16px;
-    margin-bottom: 8px;
-  }
+  .pricing-table .price-cell { text-align: center; font-size: clamp(13px, 2vw, 16px); font-weight: bold; color: #1a3a2a; background: #fff; }
+  .pricing-table .price-cell small { display: block; font-size: 11px; font-weight: normal; color: #666; margin-top: 2px; }
+  .pricing-table .pack-cell { background: #fffde0; font-weight: bold; text-align: center; color: #1a3a2a; }
+  .pricing-table .pack-price { font-size: clamp(15px, 2.5vw, 20px); font-weight: 900; color: #2e7d4f; }
+  .pricing-table .desc-cell { font-size: clamp(11px, 1.5vw, 13px); color: #333; line-height: 1.7; }
+  .pricing-table .desc-cell ul { padding-left: 16px; margin-bottom: 8px; }
   .pricing-table .desc-cell li { margin-bottom: 4px; }
   .pricing-table .desc-cell .note-red {
-    color: #e74c3c;
-    font-size: 11px;
-    margin-top: 8px;
-    line-height: 1.6;
-    border-top: 1px dashed #e74c3c;
-    padding-top: 6px;
+    color: #c0392b; font-size: 11px; margin-top: 8px; line-height: 1.6;
+    border-top: 1px dashed #c0392b; padding-top: 6px;
   }
-  .pricing-table .pack-note {
-    background: #fffde0;
-    font-size: clamp(11px, 1.4vw, 13px);
-    color: #333;
-    line-height: 1.7;
-    text-align: left;
-    vertical-align: top;
-  }
-  .pricing-table .pack-note .discount {
-    color: #e74c3c;
-    font-weight: bold;
-  }
+  .pricing-table .pack-note { background: #fffde0; font-size: clamp(11px, 1.4vw, 13px); color: #333; line-height: 1.7; text-align: left; vertical-align: top; }
+  .pricing-table .pack-note .discount { color: #c0392b; font-weight: bold; }
   .hl-green { color: #2e7d4f; font-weight: bold; }
 
   /* ===== MANGA SAMPLE ===== */
-  .sample-lead {
-    text-align: center;
-    font-size: clamp(14px, 2vw, 16px);
-    color: #555;
-    margin-bottom: 36px;
-    line-height: 1.8;
-  }
+  .sample-lead { text-align: center; font-size: clamp(14px, 2vw, 16px); color: #555; margin-bottom: 36px; line-height: 1.8; }
   .sample-block-title {
-    font-size: clamp(15px, 2.5vw, 18px);
-    font-weight: 800;
-    color: #2e7d4f;
-    margin-bottom: 16px;
-    padding-left: 12px;
-    border-left: 4px solid #2e7d4f;
+    font-size: clamp(15px, 2.5vw, 18px); font-weight: 800; color: #2e7d4f;
+    margin-bottom: 16px; padding-left: 12px; border-left: 4px solid #2e7d4f;
   }
-  .illust-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    margin-bottom: 48px;
-  }
-  .illust-grid img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    display: block;
-  }
-  .manga-page-wrap {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-  .manga-page-wrap img {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.15);
-    display: block;
-  }
-  .manga-caption {
-    text-align: center;
-    font-size: 12px;
-    color: #999;
-    margin-top: 10px;
-  }
+  .illust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 48px; }
+  .illust-grid img { border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+  .manga-page-wrap { display: flex; justify-content: center; margin-bottom: 8px; }
+  .manga-page-wrap img { width: 100%; max-width: 420px; border-radius: 12px; box-shadow: 0 6px 24px rgba(0,0,0,0.15); }
+  .manga-caption { text-align: center; font-size: 12px; color: #999; margin-top: 10px; }
+
+  /* ===== FAQ ===== */
+  .faq-list { display: grid; gap: 16px; }
+  .faq-item { background: #fff; border: 1px solid #e8f5ee; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .faq-q { display: flex; gap: 10px; background: #e8f5ee; padding: 18px 24px; font-size: 15.5px; font-weight: 800; color: #1a3a2a; }
+  .faq-q .tag { flex-shrink:0; color:#fff; background:#2e7d4f; font-size:12px; font-weight:900; border-radius:6px; padding:2px 8px; }
+  .faq-a { display: flex; gap: 10px; padding: 18px 24px; font-size: 15px; color: #555; line-height: 1.8; }
+  .faq-a .tag { flex-shrink:0; color:#fff; background:#c0392b; font-size:12px; font-weight:900; border-radius:6px; padding:2px 8px; height:20px; }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final { background: linear-gradient(135deg, #1a3a2a, #2e7d4f); color: #fff; padding: 84px 20px; text-align: center; }
+  .cta-final h2 { font-size: clamp(24px, 4vw, 38px); font-weight: 900; line-height: 1.5; margin-bottom: 20px; }
+  .cta-final p.lead { font-size: 17px; opacity: 0.9; margin-bottom: 40px; line-height: 1.8; }
+  .cta-final .note { font-size: 13px; opacity: 0.7; margin-top: 16px; }
 
   /* ===== GLOBAL MOBILE ===== */
-  img { max-width: 100%; height: auto; }
   @media (max-width: 480px) {
-    .hero { padding: 48px 16px 40px; }
-    .section { padding: 48px 16px; }
+    .hero { padding: 52px 16px 44px; }
+    .section { padding: 50px 16px; }
     .solution-box { padding: 32px 20px; }
     .profile-card { padding: 24px 18px; }
-    .guarantee-box { padding: 28px 18px; }
+    .guarantee-box { padding: 30px 20px; }
   }
 
   /* ===== FOOTER ===== */
-  footer {
-    background: #1a3a2a;
-    color: #aaa;
-    text-align: center;
-    padding: 40px 20px 24px;
-    font-size: 13px;
-  }
+  footer { background: #1a3a2a; color: #aaa; text-align: center; padding: 40px 20px 24px; font-size: 13px; }
   footer strong { color: #fff; }
-
-  /* footer内の規約 */
-  .footer-legal {
-    max-width: 860px;
-    margin: 0 auto 32px;
-    text-align: left;
-  }
-  .footer-legal h2 {
-    font-size: 13px;
-    color: #888;
-    text-align: center;
-    margin-bottom: 16px;
-    letter-spacing: 1px;
-  }
-  details.footer-legal-doc {
-    background: #243d30;
-    border: 1px solid #3a5e48;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    overflow: hidden;
-  }
+  .footer-legal { max-width: 880px; margin: 0 auto 32px; text-align: left; }
+  .footer-legal h2 { font-size: 13px; color: #888; text-align: center; margin-bottom: 16px; letter-spacing: 1px; }
+  details.footer-legal-doc { background: #243d30; border: 1px solid #3a5e48; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
   details.footer-legal-doc summary {
-    padding: 12px 18px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #cce8d8;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 12px 18px; font-size: 13px; font-weight: bold; color: #cce8d8; cursor: pointer;
+    list-style: none; display: flex; justify-content: space-between; align-items: center;
   }
-  details.footer-legal-doc summary::after {
-    content: "▼";
-    font-size: 11px;
-    color: #2e7d4f;
-    transition: transform 0.2s;
-  }
-  details.footer-legal-doc[open] summary::after {
-    transform: rotate(180deg);
-  }
+  details.footer-legal-doc summary::after { content: "▼"; font-size: 11px; color: #2e7d4f; transition: transform 0.2s; }
+  details.footer-legal-doc[open] summary::after { transform: rotate(180deg); }
   details.footer-legal-doc summary::-webkit-details-marker { display: none; }
-  .footer-legal-doc-body {
-    padding: 18px 22px;
-    font-size: 13px;
-    color: #bbb;
-    line-height: 1.9;
-    border-top: 1px solid #3a5e48;
-  }
-  .footer-legal-doc-body h3 {
-    font-size: 13px;
-    font-weight: bold;
-    color: #cce8d8;
-    margin: 16px 0 6px;
-  }
+  .footer-legal-doc-body { padding: 18px 22px; font-size: 13px; color: #bbb; line-height: 1.9; border-top: 1px solid #3a5e48; }
+  .footer-legal-doc-body h3 { font-size: 13px; font-weight: bold; color: #cce8d8; margin: 16px 0 6px; }
   .footer-legal-doc-body h3:first-child { margin-top: 0; }
   .footer-legal-doc-body p { margin-bottom: 10px; }
-  .footer-legal-doc-body ol, .footer-legal-doc-body ul {
-    padding-left: 18px;
-    margin-bottom: 10px;
-  }
+  .footer-legal-doc-body ol, .footer-legal-doc-body ul { padding-left: 18px; margin-bottom: 10px; }
   .footer-legal-doc-body li { margin-bottom: 4px; }
-  .footer-legal-doc-body table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 10px;
-    font-size: 12px;
-  }
-  .footer-legal-doc-body table th, .footer-legal-doc-body table td {
-    border: 1px solid #3a5e48;
-    padding: 7px 10px;
-    text-align: left;
-    vertical-align: top;
-  }
-  .footer-legal-doc-body table th {
-    background: #1a3a2a;
-    font-weight: bold;
-    width: 30%;
-    white-space: nowrap;
-    color: #cce8d8;
-  }
-  .footer-copy {
-    border-top: 1px solid #3a5e48;
-    padding-top: 24px;
-  }
+  .footer-legal-doc-body table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 12px; }
+  .footer-legal-doc-body table th, .footer-legal-doc-body table td { border: 1px solid #3a5e48; padding: 7px 10px; text-align: left; vertical-align: top; }
+  .footer-legal-doc-body table th { background: #1a3a2a; font-weight: bold; width: 30%; white-space: nowrap; color: #cce8d8; }
+  .footer-copy { border-top: 1px solid #3a5e48; padding-top: 24px; }
+  .divider { width: 60px; height: 4px; background: #2e7d4f; margin: 16px auto 40px; border-radius: 2px; }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">🌿 医療・福祉系の方専門｜Zoom無料相談受付中 ｜100%返金保証あり</div>
+<!-- STICKY HEADER BAR -->
+<div class="sticky-bar">
+  <span class="pill">◎ 世の中を良くしたい人限定</span>
+  <span class="label">立葉出版 <span>Kindle電子書籍マンガ出版代行</span></span>
+  <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn size-sm" target="_blank">▶ 無料相談</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ" style="width:clamp(80px,20vw,140px); height:auto; object-fit:contain; margin-bottom:20px; display:block; margin-left:auto; margin-right:auto;">
-  <div class="catch">◎ 世の中を良くしたい人限定</div>
-  <h1>
-    あなたの<em>想いと知識</em>を<br>
-    Kindle本にして<br>
-    世の中を動かそう
-  </h1>
-  <p class="sub">
-    言語聴覚士・NPO法人理事が手がける<br>
-    医療・福祉系専門の<strong>Kindle電子書籍マンガ出版代行</strong>
-  </p>
-  <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn" target="_blank">▶ まずは無料相談（Zoom）</a>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ" class="logo">
+      <span class="eyebrow" style="text-align:left;"><span>医療・福祉系の方専門</span></span>
+      <h1>
+        あなたの<em>想いと知識</em>を<br>
+        Kindle本にして<br>
+        世の中を動かそう
+      </h1>
+      <p class="sub">
+        言語聴覚士・NPO法人理事が手がける<br>
+        医療・福祉系専門の<strong>Kindle電子書籍マンガ出版代行</strong>
+      </p>
+      <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn size-lg" target="_blank">▶ まずは無料相談（Zoom）</a>
+      <p style="font-size:13px;color:#888;margin-top:14px;">Zoom無料相談30分・費用は一切かかりません</p>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="images/hero-photo.png" alt="立葉出版のサポートイメージ" class="photo">
+      <div class="float-badge fb-1"><span class="fb-num">Zoom個別サポート</span>マンツーマン対応</div>
+      <div class="float-badge fb-2"><span class="fb-num">8日以内</span>100%返金保証</div>
+      <div class="float-pin">印税最大70%であなたの手元に</div>
+    </div>
+  </div>
 </section>
 
 <!-- PROBLEM -->
 <div class="problem-bg">
   <div class="section">
+    <span class="eyebrow ey-coral"><span>PROBLEM</span></span>
     <h2 class="section-title">こんな<span>お悩み</span>はありませんか？</h2>
     <div class="divider"></div>
     <ul class="problem-list">
-      <li>医療・福祉の現場で得た知識や経験を形にしたいが、どこから始めればいいかわからない</li>
-      <li>本を出版したいけれど、Amazonへの登録手続きや技術的な作業が面倒で踏み出せない</li>
-      <li>文字だけの本では読んでもらえるか不安。マンガや図解で伝えたいが自分ではできない</li>
-      <li>大手出版社に出すと印税が5〜10%しかもらえない。もっと自分の収益にしたい</li>
-      <li>患者さんや利用者さんの家族に役立つ情報を届けたいが、発信の手段がない</li>
+      <li><span class="num">1</span><span>医療・福祉の現場で得た知識や経験を形にしたいが、どこから始めればいいかわからない</span></li>
+      <li><span class="num">2</span><span>本を出版したいけれど、Amazonへの登録手続きや技術的な作業が面倒で踏み出せない</span></li>
+      <li><span class="num">3</span><span>文字だけの本では読んでもらえるか不安。マンガや図解で伝えたいが自分ではできない</span></li>
+      <li><span class="num">4</span><span>大手出版社に出すと印税が5〜10%しかもらえない。もっと自分の収益にしたい</span></li>
+      <li><span class="num">5</span><span>患者さんや利用者さんの家族に役立つ情報を届けたいが、発信の手段がない</span></li>
     </ul>
+    <div class="bridge-box">
+      <p class="q1">「本にしたい想いはあるのに、進め方がわからない…」</p>
+      <p class="q2">それは、あなたの<strong>知識や熱意の問題</strong>ではありません。<br>ただ、「正しい伴走者」がいなかっただけです。</p>
+    </div>
   </div>
 </div>
 
 <!-- SOLUTION -->
 <div class="section">
+  <span class="eyebrow"><span>SOLUTION</span></span>
   <div class="solution-box">
     <h2>
       その悩み、すべて<br>
@@ -751,45 +643,49 @@
     </p>
   </div>
 
-  <!-- BENEFITS -->
+  <!-- BENEFITS (pillars) -->
   <h2 class="section-title">立葉出版の<span>4つの強み</span></h2>
-  <div class="divider"></div>
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <div class="icon">⏱️</div>
+  <p class="section-lead">あなたの出版を止めないための、4つの仕組み</p>
+  <div class="pillars">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
       <h3>時間・手間を丸ごとカット</h3>
-      <p>
-        フォーマット変換・KDP登録・メタデータ設定など、
-        Amazon出版の<span class="highlight">面倒な手続きをすべてお任せ</span>。
-        あなたは執筆・監修だけに集中できます。
-      </p>
+      <p>フォーマット変換・KDP登録・メタデータ設定など、Amazon出版の<span class="highlight">面倒な手続きをすべてお任せ</span>。あなたは執筆・監修だけに集中できます。</p>
+      <ul>
+        <li>フォーマット変換対応</li>
+        <li>KDP登録・メタデータ設定代行</li>
+      </ul>
     </div>
-    <div class="benefit-card">
-      <div class="icon">💰</div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
       <h3>印税収入を最大70%に</h3>
-      <p>
-        大手出版社では5〜10%の印税収入が、
-        Amazonなら<span class="highlight">最大70%があなたの手元に</span>。
-        SEOを意識したタイトル・説明文・カテゴリ選定で売れる本に最適化します。
-      </p>
+      <p>大手出版社では5〜10%の印税収入が、Amazonなら<span class="highlight">最大70%があなたの手元に</span>。売れる本に最適化します。</p>
+      <ul>
+        <li>SEOを意識したタイトル設計</li>
+        <li>説明文・カテゴリ選定サポート</li>
+      </ul>
     </div>
-    <div class="benefit-card">
-      <div class="icon">🎨</div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
       <h3>マンガ・図解付きで伝わる本に</h3>
-      <p>
-        活字だけでは伝わりにくい医療・福祉の情報を、
-        <span class="highlight">マンガや図解で視覚的に表現</span>。
-        活字が苦手な読者層にも届き、SNSでのシェア・拡散も生まれやすくなります。
-      </p>
+      <p>活字だけでは伝わりにくい医療・福祉の情報を、<span class="highlight">マンガや図解で視覚的に表現</span>。活字が苦手な読者層にも届きます。</p>
+      <ul>
+        <li>マンガ・図解の企画〜制作</li>
+        <li>SNSでのシェア・拡散も生まれやすい</li>
+      </ul>
     </div>
-    <div class="benefit-card">
-      <div class="icon">🛡️</div>
+    <div class="pillar-card">
+      <div class="pillar-num">04</div>
       <h3>100%返金保証＆マンツーマン対応</h3>
-      <p>
-        契約から<span class="highlight">8日以内なら全額返金保証</span>。
-        Zoomによる一対一の丁寧なサポートで、初めての方でも安心して進められます。
-      </p>
+      <p>契約から<span class="highlight">8日以内なら全額返金保証</span>。Zoomによる一対一の丁寧なサポートで、初めての方でも安心です。</p>
+      <ul>
+        <li>契約から8日以内 全額返金保証</li>
+        <li>Zoom個別サポート</li>
+      </ul>
     </div>
+  </div>
+  <div class="cta-wrap">
+    <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn size-sm" target="_blank">▶ 無料相談を申し込む</a>
   </div>
 </div>
 
@@ -800,38 +696,24 @@
       <span>担当者より</span>、<br>あなたへのメッセージ
     </h2>
 
-    <p>
-      このページをご覧いただいているあなたは、きっと「誰かの役に立ちたい」「自分の経験を社会に還元したい」という気持ちをお持ちの方だと思います。
-    </p>
+    <p>このページをご覧いただいているあなたは、きっと「誰かの役に立ちたい」「自分の経験を社会に還元したい」という気持ちをお持ちの方だと思います。</p>
 
-    <p>
-      私は介護福祉施設で言語聴覚士として働きながら、NPO法人の理事としてICTを活用した障害者や家族の介護支援にも携わってきました。
-    </p>
+    <p>私は介護福祉施設で言語聴覚士として働きながら、NPO法人の理事としてICTを活用した障害者や家族の介護支援にも携わってきました。</p>
 
-    <p>
-      現場で働く中で、何度も感じてきたことがあります。
-    </p>
+    <p>現場で働く中で、何度も感じてきたことがあります。</p>
 
     <div class="indent">
       「もっと患者さんの家族に、正しい情報が届けばいいのに」<br>
       「この知識が必要な人は、絶対にもっとたくさんいるはずなのに」
     </div>
 
-    <p>
-      医療・福祉の世界で働く人たちは、誰よりも「人の役に立つ知識」を持っています。でも多くの場合、その知識は職場の中だけで消えていってしまいます。
-    </p>
+    <p>医療・福祉の世界で働く人たちは、誰よりも「人の役に立つ知識」を持っています。でも多くの場合、その知識は職場の中だけで消えていってしまいます。</p>
 
-    <p>
-      出版というと「敷居が高い」と感じる方が多いです。でも今は違います。Amazonのプラットフォームを使えば、個人でも世界中に本を届けられる時代です。しかも大手出版社よりずっと高い印税収入を得ながら。
-    </p>
+    <p>出版というと「敷居が高い」と感じる方が多いです。でも今は違います。Amazonのプラットフォームを使えば、個人でも世界中に本を届けられる時代です。しかも大手出版社よりずっと高い印税収入を得ながら。</p>
 
-    <p>
-      立葉出版を始めたのは、そんな「伝える力と知識を持っているのに、発信できていない人」を一人でも多く世に出したいという思いからです。
-    </p>
+    <p>立葉出版を始めたのは、そんな「伝える力と知識を持っているのに、発信できていない人」を一人でも多く世に出したいという思いからです。</p>
 
-    <p>
-      私たちは技術的な面倒を引き受けます。あなたはただ、あなたの経験と想いを語ってくれるだけでいい。それを一緒に「本」という形に仕上げて、世の中に届けましょう。
-    </p>
+    <p>私たちは技術的な面倒を引き受けます。あなたはただ、あなたの経験と想いを語ってくれるだけでいい。それを一緒に「本」という形に仕上げて、世の中に届けましょう。</p>
 
     <div class="sign">
       立葉出版<br>
@@ -843,6 +725,7 @@
 
 <!-- HOW IT WORKS -->
 <div class="section">
+  <span class="eyebrow"><span>STEPS</span></span>
   <h2 class="section-title">ご依頼から出版まで<span>4ステップ</span></h2>
   <div class="divider"></div>
   <div class="steps">
@@ -880,7 +763,7 @@
 <!-- GUARANTEE -->
 <div class="section" style="padding-top: 0;">
   <div class="guarantee-box">
-    <div class="badge">🛡️</div>
+    <span class="g-label">安心保証</span>
     <h3>契約から8日以内<br>100%返金保証</h3>
     <p>
       万が一ご満足いただけない場合、契約から8日以内であれば全額返金いたします。
@@ -895,7 +778,7 @@
   <h2 class="section-title">担当者<span>プロフィール</span></h2>
   <div class="divider"></div>
   <div class="profile-card">
-    <div class="profile-icon">📗</div>
+    <div class="profile-icon"><img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ"></div>
     <div class="profile-text">
       <h3>Manager and CEO / 立葉出版</h3>
       <h2>宮本 美穂</h2>
@@ -912,24 +795,24 @@
   </div>
 </div>
 
-<!-- PRICING TABLE -->
+<!-- PRICING -->
 <div class="pricing-section">
   <div class="section">
+    <span class="eyebrow ey-gold"><span>PRICING</span></span>
     <h2 class="section-title">料金<span>プラン</span></h2>
     <div class="divider"></div>
 
-    <p class="pricing-lead">価格表：Amazon kindle電子書籍出版にて、<strong>自主出版の代行</strong>を致します。</p>
-    <p class="pricing-sub">大手出版社での自主出版100〜300万かかるところを最低価格でできます</p>
+    <p class="compare-note">大手出版社での自主出版100〜300万かかるところを最低価格でできます</p>
 
     <div class="pricing-scroll">
       <table class="pricing-table">
         <thead>
           <tr>
             <th style="width:28px; background:#e8f5ee;"></th>
-            <th>文章のみの電子書籍<br>【原稿＋表紙作成】<br>（基本料金）</th>
-            <th>＋<span class="hl-green">高画質</span>図解<br>（20枚程度）<br>入りの電子書籍作成</th>
-            <th>＋<span class="hl-green">高画質</span>マンガ<br>（20枚程度）<br>入りの電子書籍作成</th>
-            <th>＋ペーパーバック<br>（紙書籍）作成</th>
+            <th>文章のみの<br>電子書籍<br>【原稿＋表紙作成】<br>（基本料金）</th>
+            <th>＋<span class="hl-green">高画質</span><br>図解<br>（20枚程度）<br>入りの<br>電子書籍作成</th>
+            <th>＋<span class="hl-green">高画質</span><br>マンガ<br>（20枚程度）<br>入りの<br>電子書籍作成</th>
+            <th>＋ペーパー<br>バック<br>（紙書籍）<br>作成</th>
             <th class="pack-head">自主出版代行パック<br>（右記すべてセット）</th>
           </tr>
         </thead>
@@ -959,7 +842,40 @@
         </tbody>
       </table>
     </div>
+
+    <div class="cta-wrap" style="padding-bottom:0;">
+      <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn size-sm" target="_blank">▶ 無料相談で料金プランを相談する</a>
+    </div>
   </div>
+</div>
+
+<!-- CONTRACT BONUS -->
+<div class="section">
+  <span class="eyebrow ey-gold"><span>BONUS</span></span>
+  <h2 class="section-title">ご契約<span>特典</span>のご案内</h2>
+  <p class="section-lead">有料プラン成約特典・以下いずれか1つをプレゼント</p>
+  <div class="bonus-grid">
+    <div class="bonus-card bc-blue">
+      <div class="bonus-tag">特典 A</div>
+      <h4>本人写真から<br>漫画主人公キャラクター化</h4>
+      <p>提供いただいた写真をもとに、著者ご本人をモデルにしたオリジナルの漫画キャラクターを制作します。</p>
+    </div>
+    <div class="bonus-card bc-green">
+      <div class="bonus-tag">特典 B</div>
+      <h4>基本料金割引券<br>（基本料金のみの使用は不可）</h4>
+      <p>次回の契約時に使用可能。リピーター契約者様の料金負担を軽減いたします。</p>
+    </div>
+    <div class="bonus-card bc-purple">
+      <div class="bonus-tag">特典 C</div>
+      <h4>Claude Code活用書籍<br><span style="font-weight:400;font-size:12.5px;color:#777;">（AIエージェントの使い方がわかる本）</span></h4>
+      <p>AIエージェント「Claude Code」の基本的な使い方をまとめた解説書籍をプレゼントします。</p>
+    </div>
+  </div>
+  <div class="bonus-pack-note">
+    <span class="bonus-pack-label">パック契約者限定</span>
+    自主出版代行パックをご契約の方には、<strong>Claude Codeセットアップ支援</strong>もあわせてプレゼントします。
+  </div>
+  <p class="bonus-tagline">知識を届けるだけじゃない、あなたの武器も増える。</p>
 </div>
 
 <!-- MANGA SAMPLE -->
@@ -972,14 +888,14 @@
     ※下記は実際の制作サンプルです（「漫画で学ぶ障害の世界vol.1 ADHD」より）
   </p>
 
-  <p class="sample-block-title">🎨 イラスト解説ページ（抜粋）</p>
+  <p class="sample-block-title">イラスト解説ページ（抜粋）</p>
   <div class="illust-grid">
     <img src="images/image1.jpg" alt="第1章 ADHDとは何か">
     <img src="images/image2.jpg" alt="ADHDへの見方の変化">
     <img src="images/image3.jpg" alt="ADHDの3つのタイプ">
   </div>
 
-  <p class="sample-block-title">📖 マンガページ（1ページ抜粋）</p>
+  <p class="sample-block-title">マンガページ（1ページ抜粋）</p>
   <div class="manga-page-wrap">
     <img src="images/image41.jpg" alt="漫画ページサンプル">
   </div>
@@ -989,38 +905,29 @@
 <!-- FAQ -->
 <div class="problem-bg">
   <div class="section">
+    <span class="eyebrow ey-coral"><span>FAQ</span></span>
     <h2 class="section-title">よくある<span>ご質問</span></h2>
     <div class="divider"></div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">医療・福祉以外の分野でもお願いできますか？</div>
-        <div class="faq-a">
-          立葉出版では特に医療・福祉系の専門家に特化しておりますが、「世の中を良くしたい」という想いのある方であれば他分野もご相談ください。まずは無料相談でお話をお聞きします。
-        </div>
+        <div class="faq-q"><span class="tag">Q</span>医療・福祉以外の分野でもお願いできますか？</div>
+        <div class="faq-a"><span class="tag">A</span>立葉出版では特に医療・福祉系の専門家に特化しておりますが、「世の中を良くしたい」という想いのある方であれば他分野もご相談ください。まずは無料相談でお話をお聞きします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">原稿がまだ書けていなくてもお願いできますか？</div>
-        <div class="faq-a">
-          はい、大丈夫です。構成のご提案からお手伝いします。テーマと伝えたいことさえあれば、一緒に作り上げていくことができます。
-        </div>
+        <div class="faq-q"><span class="tag">Q</span>原稿がまだ書けていなくてもお願いできますか？</div>
+        <div class="faq-a"><span class="tag">A</span>はい、大丈夫です。構成のご提案からお手伝いします。テーマと伝えたいことさえあれば、一緒に作り上げていくことができます。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">マンガ付きにしたいのですが、費用はどのくらいですか？</div>
-        <div class="faq-a">
-          上記の料金表をご参照ください。マンガ・図解の仕様によって異なりますので、無料相談でご希望をお聞きした上でお見積もりいたします。
-        </div>
+        <div class="faq-q"><span class="tag">Q</span>マンガ付きにしたいのですが、費用はどのくらいですか？</div>
+        <div class="faq-a"><span class="tag">A</span>上記の料金表をご参照ください。マンガ・図解の仕様によって異なりますので、無料相談でご希望をお聞きした上でお見積もりいたします。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Amazonでの販売収益はどうなりますか？</div>
-        <div class="faq-a">
-          Amazonの印税率は設定によって最大70%です（大手出版社の5〜10%と比較して大幅に高い）。販売収益はすべてご自身のAmazon KDPアカウントに直接入金されます。
-        </div>
+        <div class="faq-q"><span class="tag">Q</span>Amazonでの販売収益はどうなりますか？</div>
+        <div class="faq-a"><span class="tag">A</span>Amazonの印税率は設定によって最大70%です（大手出版社の5〜10%と比較して大幅に高い）。販売収益はすべてご自身のAmazon KDPアカウントに直接入金されます。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">返金保証の条件を教えてください。</div>
-        <div class="faq-a">
-          契約日から8日以内にお申し出いただいた場合、全額返金いたします。ご安心してご依頼ください。
-        </div>
+        <div class="faq-q"><span class="tag">Q</span>返金保証の条件を教えてください。</div>
+        <div class="faq-a"><span class="tag">A</span>契約日から8日以内にお申し出いただいた場合、全額返金いたします。ご安心してご依頼ください。</div>
       </div>
     </div>
   </div>
@@ -1032,12 +939,13 @@
     あなたの想いを、<br>
     本という形で世の中に届けませんか？
   </h2>
-  <p>
+  <p class="lead">
     まずはZoom無料相談（30分）から。<br>
     費用はかかりません。あなたのビジョンをお聞かせください。
   </p>
-  <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="btn" target="_blank">▶ 無料相談をGoogleフォームで申し込む</a>
+  <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/edit" class="cta-btn size-lg" target="_blank">▶ 無料相談をGoogleフォームで申し込む</a>
   <p class="note">※ 医療・福祉系出版専門員が対応｜契約後8日以内100%返金保証</p>
+  <p style="margin-top:16px; font-size:15px; font-weight:900; color:#ff6b5c; opacity:1;">チラシ・パンフレット等のデザイン作成のご相談にも対応いたします。お気軽にご相談ください。</p>
 </div>
 
 <!-- FOOTER -->
@@ -1203,10 +1111,9 @@
     </details>
   </div>
 </div>
-</div><!-- /footer-legal -->
 
 <div class="footer-copy">
-  <img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ" style="width:64px; height:auto; object-fit:contain; margin-bottom:10px; display:block; margin-left:auto; margin-right:auto; opacity:0.85;">
+  <img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ" style="width:64px; margin:0 auto 10px; opacity:0.85;">
   <strong>立葉出版（Tachiba Publishing）</strong><br>
   © 2026 立葉出版 All Rights Reserved.
 </div>
