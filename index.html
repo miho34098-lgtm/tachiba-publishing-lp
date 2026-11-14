@@ -515,6 +515,27 @@
   .pricing-table .pack-note { background: #fffde0; font-size: clamp(11px, 1.4vw, 13px); color: #333; line-height: 1.7; text-align: left; vertical-align: top; }
   .pricing-table .pack-note .discount { color: #c0392b; font-weight: bold; }
   .hl-green { color: #2e7d4f; font-weight: bold; }
+  /* ===== PRICING PLAN CARDS（料金表とプランを統合） ===== */
+  .plan-price-list { list-style: none; padding: 0; margin: 4px 0 12px; }
+  .plan-price-list li {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    padding: 10px 0; border-bottom: 1px dashed #d7ebdd; font-size: 14px; color: #1a3a2a; line-height: 1.6;
+  }
+  .plan-price-list li:last-child { border-bottom: none; }
+  .plan-price-list .pp-name { font-weight: bold; }
+  .plan-price-list .pp-name small { display: block; font-size: 11.5px; font-weight: normal; color: #777; }
+  .plan-price-list .pp-price { white-space: nowrap; font-size: 16px; font-weight: 900; color: #2e7d4f; }
+  .plan-pack-box { background: #fffde0; border-radius: 10px; padding: 14px 12px; text-align: center; margin: 4px 0 12px; }
+  .plan-pack-box .plan-pack-price { font-size: 30px; font-weight: 900; color: #2e7d4f; line-height: 1.3; }
+  .plan-pack-box .plan-pack-discount { font-size: 17px; font-weight: bold; color: #333; margin-top: 6px; line-height: 1.5; }
+  .plan-pack-box .plan-pack-discount strong { color: #c0392b; font-size: 24px; font-weight: 900; }
+  .plan-pack-box .plan-pack-total { font-size: 16px; color: #333; margin-top: 4px; }
+  .plan-pack-box .plan-pack-total strong { font-size: 22px; font-weight: 900; color: #1a3a2a; }
+  .plan-pack-catch { display: inline-block; font-size: 18px; font-weight: 900; color: #c0392b; }
+  .plan-note-red {
+    max-width: 760px; margin: 0 auto 20px; color: #c0392b; font-size: 12px; line-height: 1.7;
+    border-top: 1px dashed #c0392b; padding-top: 8px;
+  }
 
   /* ===== MANGA SAMPLE ===== */
   .sample-lead { text-align: center; font-size: clamp(14px, 2vw, 16px); color: #555; margin-bottom: 36px; line-height: 1.8; }
@@ -667,9 +688,9 @@
     <div class="pillar-card">
       <div class="pillar-num">02</div>
       <h3>専門知識をわかりやすい漫画・図解に変換</h3>
-      <p>専門用語が多く、活字だけでは伝わりにくい医療・福祉の情報を、<span class="highlight">マンガや図解でやさしく視覚的に表現</span>。活字が苦手な読者層にも届きやすい形を目指します。</p>
+      <p>専門用語が多く、活字だけでは伝わりにくい医療・福祉の情報を、<span class="highlight">漫画や図解でやさしく視覚的に表現</span>。活字が苦手な読者層にも届きやすい形を目指します。</p>
       <ul>
-        <li>マンガ・図解の企画〜制作</li>
+        <li>漫画・図解の企画〜制作</li>
         <li>SNSで紹介しやすい形をご提案</li>
       </ul>
     </div>
@@ -693,11 +714,12 @@
     </div>
     <div class="pillar-card">
       <div class="pillar-num">05</div>
-      <h3>低価格で出版できます</h3>
-      <p>文章のみの電子書籍の<span class="highlight">基本プラン（10万円・税込）は、大手出版社系の自費出版の10分の1以下</span>。紙の約200ページ・300部で税別195万〜230万円（各社の公開料金表より。2026年10月確認）という費用の壁で、これまで出版をあきらめていた方も、ご自身の本を形にできます。<br>※比較は、基本プラン（原稿・表紙の制作、KDP登録を含む電子書籍）と紙の本の自費出版との間で行っており、提供範囲は異なります。マンガ・図解入りは別料金です。<br><span style="font-size:12px;color:#888;line-height:1.7;">【出典】<br>・新潮社 図書編集室「料金のめやす」（200頁・300部・並製、四六判215万円／A5判230万円、税別。2023年12月現在）<br><a href="https://www.shinchosha.co.jp/tosho/price_list/" target="_blank" rel="noopener" style="color:inherit;word-break:break-all;">https://www.shinchosha.co.jp/tosho/price_list/</a><br>・文藝春秋 企画出版部「価格表」（200頁・300部・並製、B6判195万円、税別。2024年7月改定）<br><a href="https://www.bunshun.co.jp/kikakushuppan/price.html" target="_blank" rel="noopener" style="color:inherit;word-break:break-all;">https://www.bunshun.co.jp/kikakushuppan/price.html</a><br>いずれも編集・校正・デザインを含む紙の本の料金です。</span></p>
+      <h3>短期間・低価格でできます</h3>
+      <p>文章のみの電子書籍の<span class="highlight">基本料金は20万円（税込）</span>。大手出版社系の自費出版は、紙の約200ページ・300部で税別195万〜230万円（各社の公開料金表より。2026年10月確認）。この費用の壁で、これまで出版をあきらめていた方も、ご自身の本を形にできます。<br>※比較は、基本プラン（原稿・表紙の制作、KDP登録を含む電子書籍）と紙の本の自費出版との間で行っており、提供範囲は異なります。漫画・図解入りは別料金です。<br><span style="font-size:12px;color:#888;line-height:1.7;">【出典】<br>・新潮社 図書編集室「料金のめやす」（200頁・300部・並製、四六判215万円／A5判230万円、税別。2023年12月現在）<br><a href="https://www.shinchosha.co.jp/tosho/price_list/" target="_blank" rel="noopener" style="color:inherit;word-break:break-all;">https://www.shinchosha.co.jp/tosho/price_list/</a><br>・文藝春秋 企画出版部「価格表」（200頁・300部・並製、B6判195万円、税別。2024年7月改定）<br><a href="https://www.bunshun.co.jp/kikakushuppan/price.html" target="_blank" rel="noopener" style="color:inherit;word-break:break-all;">https://www.bunshun.co.jp/kikakushuppan/price.html</a><br>いずれも編集・校正・デザインを含む紙の本の料金です。</span></p>
       <ul>
-        <li>基本プラン 10万円（税込）</li>
-        <li>マンガ・図解入りは下の料金プランをご覧ください</li>
+        <li>出版までの目安は1〜3か月程度</li>
+        <li>基本料金 20万円（税込）</li>
+        <li>漫画・図解入りは下の料金プランをご覧ください</li>
       </ul>
     </div>
     <div class="pillar-card">
@@ -746,7 +768,8 @@
     <div class="sign">
       立葉出版<br>
       <strong>代表 宮本 美穂（Miho Miyamoto）</strong>
-      <br>言語聴覚士 / NPO法人理事
+      <br>筑波大学大学院卒 / 言語聴覚士 / NPO法人理事
+      <br>Kindle出版専門
     </div>
   </div>
 </div>
@@ -767,7 +790,7 @@
       <div class="step-content">
         <span class="step-meta">1回目｜Zoom面談 40分程度</span>
         <h4>本のイメージ相談</h4>
-        <p>Googleフォームに記載いただいた本のイメージをもとに、ターゲット読者・タイトル案・章構成・マンガ/図解の有無など、本づくりのプランを相談します。</p>
+        <p>Googleフォームに記載いただいた本のイメージをもとに、ターゲット読者・タイトル案・章構成・漫画/図解の有無など、本づくりのプランを相談します。</p>
       </div>
     </div>
     <div class="step-item">
@@ -775,7 +798,7 @@
       <div class="step-content">
         <span class="step-meta">2回目｜Zoom面談 40分程度</span>
         <h4>原稿作成・表紙画像のご提案</h4>
-        <p>原稿と表紙画像をご提案します。専門知識をやさしく表現し、マンガ/図解の制作まで進めます。</p>
+        <p>原稿と表紙画像をご提案します。専門知識をやさしく表現し、漫画/図解の制作まで進めます。</p>
       </div>
     </div>
     <div class="step-item">
@@ -783,7 +806,7 @@
       <div class="step-content">
         <span class="step-meta">3回目｜Zoom面談 40分程度</span>
         <h4>修正・完成</h4>
-        <p>2回目の原稿・表紙をもとに訂正を行い、完成させます。訂正のご希望は、3回目の面談までにお知らせください。</p>
+        <p>2回目の原稿・表紙をもとに訂正を行い、完成させます。訂正のご希望は、3回目の面談までにお知らせください。3回目の面談より後の画像の訂正は、1回1,000円です。</p>
       </div>
     </div>
     <div class="step-item">
@@ -797,40 +820,28 @@
   </div>
 </div>
 
-<!-- GUARANTEE -->
-<div class="section" style="padding-top: 0;">
-  <div class="guarantee-box">
-    <span class="g-label">安心保証</span>
-    <h3>書籍出版代行は、契約から8日以内<br>100%返金保証</h3>
-    <p>
-      書籍出版代行は、契約から8日以内であれば、理由を問わず、全額返金いたします。
-      AI活用の内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）は別の契約で、返金の条件が異なります（特定商取引法に基づく表記をご確認ください）。
-      初めての方も安心してご相談ください。
-      また、すべてのやり取りはZoomのマンツーマン対応で丁寧にサポートします。
-    </p>
-  </div>
-</div>
-
-<!-- PROFILE -->
-<div class="section" style="padding-top: 0;">
-  <h2 class="section-title">担当者<span>プロフィール</span></h2>
+<!-- MANGA SAMPLE -->
+<div class="section">
+  <h2 class="section-title">漫画・<span>図解</span>イメージ</h2>
   <div class="divider"></div>
-  <div class="profile-card">
-    <div class="profile-icon"><img src="images/立葉出版ロゴマーク.png" alt="立葉出版ロゴ"></div>
-    <div class="profile-text">
-      <h3>Manager and CEO / 立葉出版</h3>
-      <h2>宮本 美穂</h2>
-      <p>
-        介護福祉施設に勤務する言語聴覚士。筑波大学大学院卒業生によるNPO法人の理事を務め、ICTを活用した障害者やその家族の介護支援推進事業に従事。医療・福祉の現場で培った専門知識と、出版ノウハウを組み合わせた「伝わる本づくり」を支援。
-      </p>
-      <div class="profile-tags">
-        <span>言語聴覚士</span>
-        <span>NPO法人理事</span>
-        <span>ICT×介護支援</span>
-        <span>Kindle出版専門</span>
-      </div>
-    </div>
+  <p class="sample-lead">
+    AIを活用した<strong>図解・漫画</strong>で、難しい専門知識も<br>
+    わかりやすく・楽しく伝えられます。<br>
+    ※下記は実際の制作サンプルです（「漫画で学ぶ障害の世界vol.1 ADHD」より）
+  </p>
+
+  <p class="sample-block-title">図解解説ページ（抜粋）</p>
+  <div class="illust-grid">
+    <img src="images/image1.jpg" alt="第1章 ADHDとは何か">
+    <img src="images/image2.jpg" alt="ADHDへの見方の変化">
+    <img src="images/image3.jpg" alt="ADHDの3つのタイプ">
   </div>
+
+  <p class="sample-block-title">漫画ページ（1ページ抜粋）</p>
+  <div class="manga-page-wrap">
+    <img src="images/image41.jpg" alt="漫画ページサンプル">
+  </div>
+  <p class="manga-caption">※ 実際の書籍では複数ページの漫画が収録されます</p>
 </div>
 
 <!-- PRICING -->
@@ -840,79 +851,39 @@
     <h2 class="section-title">料金<span>プラン</span></h2>
     <div class="divider"></div>
 
+    <p class="section-lead">2つのプランから、目的に合わせて選べます</p>
     <p class="compare-note">価格は税込です。内容により変わるため、無料相談でお見積もりします</p>
 
-    <div class="pricing-scroll">
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th style="width:28px; background:#e8f5ee;"></th>
-            <th>文章のみの<br>電子書籍<br>【原稿＋表紙作成】<br>（基本料金）</th>
-            <th>＋<span class="hl-green">高画質</span><br>図解<br>（20枚程度）<br>入りの<br>電子書籍作成</th>
-            <th>＋<span class="hl-green">高画質</span><br>マンガ<br>（20枚程度）<br>入りの<br>電子書籍作成</th>
-            <th>＋ペーパー<br>バック<br>（紙書籍）<br>作成</th>
-            <th class="pack-head">書籍出版代行お得パック<br>（右記すべてセット）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="row-label">価格</th>
-            <td class="price-cell">10万円</td>
-            <td class="price-cell">＋10万円<small>（単品5000円/枚）</small></td>
-            <td class="price-cell">＋20万円<small>（単品1万円/枚）</small></td>
-            <td class="price-cell">＋20万円</td>
-            <td class="pack-cell"><span class="pack-price">50万円</span></td>
-          </tr>
-          <tr>
-            <th class="row-label">概要</th>
-            <td class="desc-cell" colspan="4">
-              <ul>
-                <li>1回目40分程度のzoom面談で、google formに記載して頂いた本のイメージの相談</li>
-                <li>2回目40分程度のzoom面談で原稿作成、表紙の画像の提案</li>
-                <li>3回目40分程度のzoom面談で2回目の原稿、表紙作成の訂正（完成）</li>
-                <li>4回目40分程度のzoom面談で書籍出版実行（紹介文、その他必要事項入力）</li>
-              </ul>
-              <p>以上、週1回程度の面談で書籍出版致します。</p>
-              <p class="note-red">注意事項：訂正は3回目の面談までにお知らせください（画像訂正1回出力1000円）。AIを使用しての作成になります。内容の確認（監修）と最終的な責任は、お客様にあります。</p>
-            </td>
-            <td class="pack-note">個別より<span class="discount">10万円割引</span>。<br>（100%返金保証…契約から8日以内であれば、解約返金保証・右記載項目も同様）</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="bonus-grid">
+      <div class="bonus-card bc-blue">
+        <div class="bonus-tag">プラン 1</div>
+        <h4>個別プラン<br><span style="font-weight:400;font-size:12.5px;color:#c0392b;">必要なものだけ選べます</span></h4>
+        <ul class="plan-price-list">
+          <li><span class="pp-name">基本料金<small>出版入力情報作成、表紙、原稿作成等</small></span><span class="pp-price">20万円</span></li>
+          <li><span class="pp-name">＋図解（20枚程度）入り<small>単品 5,000円/枚</small></span><span class="pp-price">＋10万円</span></li>
+          <li><span class="pp-name">＋漫画（台本込み・20枚程度）入り<small>単品 1万円/枚</small></span><span class="pp-price">＋20万円</span></li>
+          <li><span class="pp-name">＋ペーパーバック（紙書籍）作成</span><span class="pp-price">＋20万円</span></li>
+        </ul>
+        <p style="color:#c0392b;">基本料金に、必要なものを組み合わせられます。</p>
+        <p style="color:#c0392b;font-weight:bold;">単品でも承ります。</p>
+      </div>
+      <div class="bonus-card bc-green">
+        <div class="bonus-tag">プラン 2</div>
+        <h4>書籍出版代行お得パック<br><span class="plan-pack-catch">個別よりお得！</span></h4>
+        <div class="plan-pack-box">
+          <p class="plan-pack-price">50万円</p>
+          <p class="plan-pack-discount">個別より<strong>20万円割引</strong></p>
+          <p class="plan-pack-total">（個別の合計 <strong>70万円</strong>）</p>
+        </div>
+        <p style="font-weight:bold;color:#1a3a2a;">プラン1の4つ（基本料金・図解・漫画（台本込み）・ペーパーバック）をすべてセットにして、出版をまるごとおまかせいただけます。</p>
+      </div>
     </div>
+    <p class="manga-caption" style="margin-bottom:14px;">※プラン1・プラン2とも、契約から8日以内であれば、理由を問わず全額返金します（書籍出版代行の返金保証）。</p>
+    <p class="bonus-tagline">あなたに合うプランをご提案します。</p>
 
     <div class="cta-wrap" style="padding-bottom:0;">
-      <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/viewform" class="cta-btn size-sm" target="_blank">▶ 無料相談で料金プランを相談する</a>
+      <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/viewform" class="cta-btn size-sm" target="_blank">▶ 無料相談でプランを相談する</a>
     </div>
-  </div>
-</div>
-
-<!-- PLAN GUIDE -->
-<div class="section">
-  <span class="eyebrow ey-gold"><span>PLAN</span></span>
-  <h2 class="section-title">あなたに合わせた<span>出版プラン</span></h2>
-  <p class="section-lead">3つのプランから、目的に合わせて選べます</p>
-  <div class="bonus-grid">
-    <div class="bonus-card bc-blue">
-      <div class="bonus-tag">プラン 1</div>
-      <h4>個別プラン</h4>
-      <p>必要なものだけ選べます。上の料金表から、ご希望の内容を組み合わせられます。</p>
-    </div>
-    <div class="bonus-card bc-green">
-      <div class="bonus-tag">プラン 2</div>
-      <h4>書籍出版代行お得パック<br><span style="font-weight:400;font-size:12.5px;color:#c0392b;">個別よりお得！</span></h4>
-      <p>出版をまるごとおまかせいただけます。</p>
-    </div>
-    <div class="bonus-card bc-purple">
-      <div class="bonus-tag">プラン 3</div>
-      <h4>お得パック＋AI活用プラン<br><span style="font-weight:400;font-size:12.5px;color:#777;">3つから2つ選べる</span></h4>
-      <p>お得パックに加えて、次の3つから2つを選べます。<br>①Claude code（セットアップ・書籍プレゼント）<br>②LP作成<br>③ショート動画作成</p>
-    </div>
-  </div>
-  <p class="bonus-tagline">あなたに合うプランをご提案します。</p>
-  <p class="manga-caption">※お得パック＋AI活用プランの料金は、無料相談でご案内します。</p>
-  <div class="cta-wrap" style="padding-bottom:0;">
-    <a href="https://docs.google.com/forms/d/1kNouXxiCsebA6nJ1u0kN2-DgZip7pq_D-Bkegnhe3jk/viewform" class="cta-btn size-sm" target="_blank">▶ 無料相談でプランを相談する</a>
   </div>
 </div>
 
@@ -929,40 +900,29 @@
     </div>
     <div class="bonus-card bc-green">
       <div class="bonus-tag">特典 B</div>
-      <h4>基本料金割引券<br>（基本料金のみの使用は不可）</h4>
+      <h4>3万円割引券</h4>
       <p>次回の契約時に使用可能。リピーター契約者様の料金負担を軽減いたします。</p>
     </div>
     <div class="bonus-card bc-purple">
       <div class="bonus-tag">特典 C</div>
-      <h4>自己肯定感が上がる<br>AI自己診断書</h4>
-      <p>AIを活用した自己診断書をプレゼントします。</p>
+      <h4>クロードコードの<br>活用書籍とセットアップ資料</h4>
+      <p>AIツール「クロードコード（Claude Code）」の活用書籍とセットアップ資料をプレゼントします。</p>
     </div>
   </div>
   <p class="bonus-tagline">あなたに合った特典を、ひとつ選べます。</p>
 </div>
 
-<!-- MANGA SAMPLE -->
-<div class="section">
-  <h2 class="section-title">マンガ・<span>イラスト</span>イメージ</h2>
-  <div class="divider"></div>
-  <p class="sample-lead">
-    AIを活用した<strong>高画質イラスト・マンガ</strong>で、難しい専門知識も<br>
-    わかりやすく・楽しく伝えられます。<br>
-    ※下記は実際の制作サンプルです（「漫画で学ぶ障害の世界vol.1 ADHD」より）
-  </p>
-
-  <p class="sample-block-title">イラスト解説ページ（抜粋）</p>
-  <div class="illust-grid">
-    <img src="images/image1.jpg" alt="第1章 ADHDとは何か">
-    <img src="images/image2.jpg" alt="ADHDへの見方の変化">
-    <img src="images/image3.jpg" alt="ADHDの3つのタイプ">
+<!-- GUARANTEE -->
+<div class="section" style="padding-top: 0;">
+  <div class="guarantee-box">
+    <span class="g-label">安心保証</span>
+    <h3>書籍出版代行は、契約から8日以内<br>100%返金保証</h3>
+    <p>
+      書籍出版代行は、契約から8日以内であれば、理由を問わず、全額返金いたします。
+      初めての方も安心してご相談ください。
+      また、すべてのやり取りはZoomのマンツーマン対応で丁寧にサポートします。
+    </p>
   </div>
-
-  <p class="sample-block-title">マンガページ（1ページ抜粋）</p>
-  <div class="manga-page-wrap">
-    <img src="images/image41.jpg" alt="漫画ページサンプル">
-  </div>
-  <p class="manga-caption">※ 実際の書籍では複数ページのマンガが収録されます</p>
 </div>
 
 <!-- FAQ -->
@@ -981,8 +941,8 @@
         <div class="faq-a"><span class="tag">A</span>はい、大丈夫です。構成のご提案からお手伝いします。テーマと伝えたいことさえあれば、一緒に作り上げていくことができます。</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="tag">Q</span>マンガ付きにしたいのですが、費用はどのくらいですか？</div>
-        <div class="faq-a"><span class="tag">A</span>上記の料金表をご参照ください。マンガ・図解の仕様によって異なりますので、無料相談でご希望をお聞きした上でお見積もりいたします。</div>
+        <div class="faq-q"><span class="tag">Q</span>漫画付きにしたいのですが、費用はどのくらいですか？</div>
+        <div class="faq-a"><span class="tag">A</span>上記の料金プランをご参照ください。漫画・図解の仕様によって異なりますので、無料相談でご希望をお聞きした上でお見積もりいたします。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="tag">Q</span>Amazonでの販売収益はどうなりますか？</div>
@@ -990,7 +950,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="tag">Q</span>返金保証の条件を教えてください。</div>
-        <div class="faq-a"><span class="tag">A</span>契約日から8日以内にお申し出いただければ、理由を問わず全額返金いたします。この返金保証は、書籍の出版代行（Kindle電子書籍出版代行契約書）が対象です。お得パック＋AI活用プランのAI活用の内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）は別の契約（AI活用デザイン制作業務委託契約書）で、返金の条件が異なります。詳しくは、ページ下部の「特定商取引法に基づく表記」をご確認ください。</div>
+        <div class="faq-a"><span class="tag">A</span>契約日から8日以内にお申し出いただければ、理由を問わず全額返金いたします。この返金保証は、書籍の出版代行（Kindle電子書籍出版代行契約書）が対象です。詳しくは、ページ下部の「特定商取引法に基づく表記」をご確認ください。</div>
       </div>
     </div>
   </div>
@@ -1079,21 +1039,20 @@
           <tr><th>サービス名</th><td>Amazon kindle電子書籍マンガ出版代行サービス／スライド・チラシ・パンフレット等のデザイン作成（「AI活用デザイン制作業務委託契約書」に基づく）</td></tr>
           <tr><th>販売価格</th><td>
             各プランの料金は下記の通りです（税込）。<br>
-            ・文章のみ電子書籍（基本）：100,000 円<br>
-            ・図解入り電子書籍：200,000 円<br>
-            ・マンガ入り電子書籍：300,000 円<br>
-            ・ペーパーバック（紙書籍）作成：300,000 円<br>
+            ・基本料金（出版入力情報作成、表紙、原稿作成等）：200,000 円<br>
+            ・図解入り電子書籍：300,000 円<br>
+            ・マンガ入り電子書籍：400,000 円<br>
+            ・ペーパーバック（紙書籍）作成：400,000 円<br>
             ・書籍出版代行お得パック（全部込み）：500,000 円<br>
-            ・お得パック＋AI活用プラン：700,000 円（書籍出版代行お得パックの料金500,000 円に、AI活用の内容（①Claude codeのセットアップ・書籍プレゼント ②LP作成 ③ショート動画作成 の3つから2つを選択）の料金200,000 円を加えた金額です）<br>
             ・スライド・チラシ・パンフレット等のデザイン作成：個別注文ごとに、お見積りでご案内します。<br>
             ※ 割引適用の場合あり（詳細は個別にご案内）
           </td></tr>
-          <tr><th>料金以外の必要費用</th><td>銀行振込の場合：振込手数料（お客様負担）。その他、通信料等はお客様のご負担となります。</td></tr>
+          <tr><th>料金以外の必要費用</th><td>銀行振込の場合：振込手数料（お客様負担）。その他、通信料等はお客様のご負担となります。<br>画像の訂正（3回目の面談より後）：1回1,000円（税込）</td></tr>
           <tr><th>支払方法</th><td>銀行振込（契約締結後、当社指定口座へお振込みください）※分割払いは個別にカード会社と行ってください。</td></tr>
           <tr><th>支払時期</th><td>契約締結後、当社が指定する期日までにお支払いください。</td></tr>
           <tr><th>サービス提供時期</th><td>入金確認後、出版代行契約書に定めるスケジュールに従って業務を開始します。完全原稿受領後３か月以内の出版を目安として業務を行います（Amazon KDP 審査状況により変動あり）。</td></tr>
           <tr><th>返品・キャンセル</th><td>
-            ※下記の【契約後８日以内の解約】【８日経過後のキャンセル】は、書籍の出版代行（「Kindle電子書籍出版代行契約書」に基づく部分）の条件です。お得パック＋AI活用プランのAI活用の内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）の条件は、その下に記載しています。<br><br>
+            ※下記の【契約後８日以内の解約】【８日経過後のキャンセル】は、書籍の出版代行（「Kindle電子書籍出版代行契約書」に基づく部分）の条件です。スライド・チラシ・パンフレット等のデザイン作成の条件は、その下に記載しています。<br><br>
             【契約後８日以内の解約（当社独自の制度）】契約締結日から８日以内は、書面または電磁的方法（メール等）により、理由を問わず解約が可能です。<br><br>
             【８日経過後のキャンセル】<br>
             ・制作着手前（第１回面談前）：全額返金<br>
@@ -1101,14 +1060,12 @@
             ・原稿制作開始後・納品前：料金の 40% 返金<br>
             ・納品後：返金不可<br>
             乙（当社）の都合によるキャンセルの場合は全額返金します。<br><br>
-            【お得パック＋AI活用プランの追加内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）について】<br>
-            AI活用の内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）は、書籍の出版代行契約とは別に締結する「AI活用デザイン制作業務委託契約書」に基づいて行います。AI活用の内容に係る料金（200,000円）の返金は、書籍の制作段階であれば、上記の返金の条件に従って行います。AI活用の内容は、選択した2つをセットにした価格のため、書籍の制作の完了後に、いずれか（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）に着手した時点以降は、返金できません。ただし、当社の都合によるキャンセルの場合は、全額返金します。制作物は、納品後７営業日以内に検収していただきます。検収前の修正には、２回まで無償で対応します（それを超える修正や、検収合格後の変更は、協議のうえ追加の対価を定めます）。契約の解除は、同契約書の定め（第15条）によります。なお、法令に別段の定めがある場合は、その定めに従います。<br><br>
             【スライド・チラシ・パンフレット等のデザイン作成について】<br>
             「AI活用デザイン制作業務委託契約書」に基づいて行います。デザイン作成は低価格のため、お客様のご都合によるキャンセル・返金はできません（法令に別段の定めがある場合を除きます）。ただし、当社の都合によるキャンセルの場合は、全額返金します。制作物は、納品後７営業日以内に検収していただきます。検収前の修正には、２回まで無償で対応します（それを超える修正や、検収合格後の変更は、協議のうえ追加の対価を定めます）。契約の解除は、同契約書の定め（第15条）によります。<br><br>
             解約のご連絡先メールアドレス：tateha2026@gmail.com
           </td></tr>
           <tr><th>動作環境・特記事項</th><td>
-            本サービスはAmazon Kindle Direct Publishing（KDP）を通じた電子書籍出版代行を行います。Amazonの審査結果・販売成績・収益は保証しません。AIを活用した制作を含みますが、品質確認を経て納品します。お得パック＋AI活用プランの追加内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）による売上・集客等の成果は保証しません。
+            本サービスはAmazon Kindle Direct Publishing（KDP）を通じた電子書籍出版代行を行います。Amazonの審査結果・販売成績・収益は保証しません。AIを活用した制作を含みますが、品質確認を経て納品します。
           </td></tr>
         </table>
         <p style="font-size:13px; color:#888;">※上記の内容は予告なく変更される場合があります。最新の情報は当社ウェブサイトをご確認ください。<br>最終更新日：2026年11月9日</p>
@@ -1131,7 +1088,6 @@
         <h3>第３条（サービス内容）</h3>
         <p>本サービスの内容は、別途締結する出版代行契約書に定める通りとします。当社は、サービス内容を変更する場合、お客様に事前にご通知します。</p>
         <p>スライド・チラシ・パンフレット等のデザイン作成は、別途締結する「AI活用デザイン制作業務委託契約書」に定める通りとします。</p>
-        <p>お客様が「お得パック＋AI活用プラン」をお申し込みになる場合、本サービスの内容には、お得パックの内容に加えて、「Claude codeのセットアップ・書籍プレゼント」「LP作成」「ショート動画作成」の3つのうち、お客様が選択した2つが含まれます。</p>
         <h3>第４条（申込みと契約成立）</h3>
         <p>本サービスへの申込みは、当社所定の方法による申込み手続きの完了および当社からの承諾通知の送付をもって、契約が成立するものとします。</p>
         <h3>第５条（料金および支払）</h3>
@@ -1141,7 +1097,7 @@
           <li>振込手数料その他支払いに要する費用はお客様の負担とします。</li>
         </ol>
         <h3>第６条（キャンセル・返金）</h3>
-        <p>キャンセルおよび返金に関する条件は、出版代行契約書第４条の定めに従います。ただし、「お得パック＋AI活用プラン」のAI活用の内容（Claude codeのセットアップ・書籍プレゼント、LP作成、ショート動画作成）に係る料金の返金は、出版代行契約書第４条第６項の定めに従います。</p>
+        <p>キャンセルおよび返金に関する条件は、出版代行契約書第４条の定めに従います。</p>
         <h3>第７条（お客様の義務）</h3>
         <ol>
           <li>当社に提供する原稿・素材等が第三者の著作権・肖像権その他の権利を侵害しないこと</li>
